@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import axios from 'axios';
 import { createContext } from "react";
-import auth from '../firebase/firebase.config'
+import auth from '../Firebase/firebase.config'
 import useAxiosPublic from '../hooks/useAxiosPublic';
 
 export const AuthContext = createContext(null);
