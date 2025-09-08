@@ -75,11 +75,11 @@ export default function NavBar() {
           </ul>
         </div>
         <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center gap-2">
-          <FaBuilding className="text-2xl" />
-          <span>MyBuilding</span>
+          <FaBuilding className="text-3xl" />
+          <span className="text-3xl">Sky-Tower</span>
         </NavLink>
       </div>
-      <div className="w-[35%] navbar-end md:w-[80%] justify-end">
+      <div className="w-[35%] navbar-end ml-6 md:w-[80%] justify-end">
         <ul className="menu menu-horizontal px-1 hidden lg:flex">{navItems}</ul>
         {user ? (
           <div onClick={() => setCallBox(!callBox)} className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">
