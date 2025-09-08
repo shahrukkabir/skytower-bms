@@ -79,7 +79,7 @@ export default function NavBar() {
           <span>MyBuilding</span>
         </NavLink>
       </div>
-      <div className="w-[35%] md:w-[80%] justify-end">
+      <div className="w-[35%] navbar-end md:w-[80%] justify-end">
         <ul className="menu menu-horizontal px-1 hidden lg:flex">{navItems}</ul>
         {user ? (
           <div onClick={() => setCallBox(!callBox)} className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">
@@ -91,6 +91,7 @@ export default function NavBar() {
           </Link>
         )}
       </div>
+      
     </div>
   );
 }

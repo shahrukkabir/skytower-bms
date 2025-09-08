@@ -1,11 +1,9 @@
-import React from 'react';
+import Banner from "./Banner";
 
-const Home = () => {
-    return (
-        <div>
-            <h2 className='text-red'>Home</h2>
-        </div>
-    );
-};
-
-export default Home;
+export default function Home() {
+  return (
+    <div className="w-full">
+      <Banner></Banner>
+    </div>
+  );
+}
