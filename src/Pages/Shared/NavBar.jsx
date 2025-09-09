@@ -67,36 +67,22 @@ export default function NavBar() {
       {user ? ProfileLinkBox : ""}
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
-          <label tabIndex={0} className="btn btn-ghost text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
+          <label tabIndex={0} className="btn btn-ghost text-3xl text-white">
+            {/* Hamburger Icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[rgba(0,0,0,0.6)] rounded-box w-52"
-          >
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[rgba(0,0,0,0.6)] rounded-box w-52">
             {navItems}
           </ul>
         </div>
 
-        <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center gap-2">
-          <FaBuilding className="text-3xl" />
+        <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center">
+          <FaBuilding className="text-2xl lg:text-3xl " />
           <span className="text-3xl">Sky-Tower</span>
         </NavLink>
       </div>
-      <div className="w-[35%] navbar-end ml-6 md:w-[80%] justify-end">
+      <div className="w-[35%] navbar-end ml-7 md:w-[80%] justify-end">
         <ul className="menu menu-horizontal px-1 hidden lg:flex">{navItems}</ul>
         {user ? (
           <div onClick={() => setCallBox(!callBox)} className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">

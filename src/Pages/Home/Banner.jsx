@@ -59,7 +59,7 @@ export default function Banner() {
                 }}
                 speed={800}
                 loop={true}
-                grabCursor={true}
+                // grabCursor={true}
                 pagination={false}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
@@ -70,11 +70,11 @@ export default function Banner() {
                 {bannerData.map((item, idx) => (
                     <SwiperSlide key={idx}>
                         <img src={item.image} alt={`slide${idx}`} className="w-full h-full" />
-                        <div className="absolute bg-[rgba(0,0,0,0.5)] inset-0 flex items-center flex-col gap-7 justify-center">
+                        <div className="absolute bg-[rgba(0,0,0,0.5)] px-10 inset-0 flex items-center flex-col gap-7 justify-center">
                             <h1 className="text-3xl sm:text-5xl text-center text-shadow-md text-white font-bold">
                                 {item.text}
                             </h1>
-                            <p className="max-w-[700px] px-4 text-xl text-center text-shadow-md text-white">
+                            <p className="max-w-[700px] text-xl text-center text-shadow-md text-white">
                                 {item.desc}
                             </p>
                             <Link className="w-[250px] mt-5 text-center font-semibold text-white p-3 border-2 border-white hover:border-[#c78960] hover:bg-[#c78960] hover:text-white transition-colors duration-300">EXPLORE NOW</Link>
