@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import slide1 from "../../Image/slide1.jpg";
 import slide2 from "../../Image/slide2.jpg";
 import slide3 from "../../Image/slide3.jpg";
 import slide4 from "../../Image/slide4.jpg";
 import slide5 from "../../Image/slid1.jpg";
-import { Link } from "react-router-dom";
 
 const bannerData = [
     {
@@ -89,8 +89,6 @@ export default function Banner() {
                     </svg>
                     <span ref={progressContent}></span>
                 </div>
-
-
             </Swiper>
         </div>
     );
