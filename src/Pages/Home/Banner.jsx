@@ -41,12 +41,12 @@ const bannerData = [
 ];
 
 export default function Banner() {
+
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
-
     const onAutoplayTimeLeft = (s, time, progress) => {
         progressCircle.current.style.setProperty("--progress", 1 - progress);
-        progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
 
     return (
@@ -54,7 +54,7 @@ export default function Banner() {
             <Swiper spaceBetween={0}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 5000, // 5s countdown
+                    delay: 5000, 
                     disableOnInteraction: false,
                 }}
                 speed={800}
@@ -83,24 +83,13 @@ export default function Banner() {
                 ))}
 
                 {/* Slider ends ====================================== */}
-                <div className="autoplay-progress absolute left-5 lg:left-auto lg:right-5 bottom-5 z-50" slot="container-end">
-                    <svg viewBox="0 0 48 48" ref={progressCircle} className="w-12 h-12">
-                        <circle
-                            cx="24"
-                            cy="24"
-                            r="20"
-                            stroke="white"
-                            strokeWidth="4"
-                            fill="none"
-                            strokeDasharray="125.6"
-                            strokeDashoffset="calc(125.6 - 125.6 * var(--progress, 1))"
-                            style={{
-                                transition: "stroke-dashoffset 0.2s linear",
-                            }}
-                        ></circle>
+                <div className="autoplay-progress absolute bottom-5 right-5 z-50 lg:left-5 lg:right-auto" slot="container-end">
+                    <svg viewBox="0 0 48 48" ref={progressCircle}>
+                        <circle cx="24" cy="24" r="20"></circle>
                     </svg>
-                    <span ref={progressContent} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold"></span>
+                    <span ref={progressContent}></span>
                 </div>
+
 
             </Swiper>
         </div>

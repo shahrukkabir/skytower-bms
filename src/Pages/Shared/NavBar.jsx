@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { FaBuilding } from "react-icons/fa"; 
+import { FaBuilding } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { RiLoginCircleFill } from "react-icons/ri";
 import LogOut from "../../Components/HomeComponents/Authentication/Logout";
@@ -7,10 +7,10 @@ import { AuthContext } from "../../provider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 
 export default function NavBar() {
-  
+
   const [callBox, setCallBox] = useState(false);
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
 
 
@@ -66,14 +66,31 @@ export default function NavBar() {
     <div className="navbar bg-[rgba(0,0,0,0.4)] fixed top-0 z-50">
       {user ? ProfileLinkBox : ""}
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost text-white lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[rgba(0,0,0,0.6)] rounded-box w-52">
+        <div className="dropdown lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[rgba(0,0,0,0.6)] rounded-box w-52"
+          >
             {navItems}
           </ul>
         </div>
+
         <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center gap-2">
           <FaBuilding className="text-3xl" />
           <span className="text-3xl">Sky-Tower</span>
@@ -91,7 +108,7 @@ export default function NavBar() {
           </Link>
         )}
       </div>
-      
+
     </div>
   );
 }
