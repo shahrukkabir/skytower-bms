@@ -62,24 +62,24 @@ export default function WelcomeHome() {
                     <img src={leftimg} alt="" className="h-full w-full absolute left-0 top-0" />
                 </div>
                 {/* ----------------------contactDiv------------------ */}
-                <div className="container mx-auto flex flex-col sm:flex-row mr-20 items-center gap-12">
-                    <div className="w-full z-10 md:w-1/2">
-                        <div className="flex mb-5 flex-col w-[220px] gap-1">
+                <div className="container mx-auto flex flex-col sm:flex-row lg:mr-20 items-center gap-12">
+                    <div className="w-full z-10 md:w-1/2 mt-5 lg:mt-0">
+                        <div className="flex mb-5 flex-col w-[220px] gap-1 mx-auto lg:mx-0">
                             <h3 className="text-center  text-xl text-[#c78960]">
                                 About The Building
                             </h3>   
                             <img src={design} alt="" />
                         </div>
-                        <h1 className="text-left text-xs font-bold text-white md:text-5xl ">
-                            The Building You Never <br /> Need To Leave
+                        <h1 className="text-center lg:text-left text-3xl font-bold text-white md:text-5xl ">
+                            The Building You Never Need To Leave
                         </h1>
-                        <p className="text-justify text-[#c78960] mr-24 text-base my-14">
+                        <p className="text-center lg:text-justify text-[#c78960] lg:mr-24 text-base my-14">
                             Featuring a refined palette of natural materials, the open living
                             spaces provide a warm counterpoint to the soaring ceilings and
                             full-height windows. Custom herringbone floors and hand-selected
                             stone bring a rich tactility to the rooms.
                         </p>
-                        <p className="text-justify text-white text-lg mb-10 mr-18  ml-24">
+                        <p className="text-center lg:text-justify text-white text-lg mb-10 lg:mr-18 lg:ml-24">
                             The design for LuxTower came from looking at the citys existing
                             buildings and thinking about which ones you might want to live in,
                             not just look at.
