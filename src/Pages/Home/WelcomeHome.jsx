@@ -41,7 +41,7 @@ export default function WelcomeHome() {
                 </div>
             </div>
             {/* ------------------ifren video div --------------------- */}
-            <div className={`w-full h-full customIndex fixed top-0 left-0 bg-[rgba(0,0,0,0.9) ${whatch ? "flex" : "hidden"} justify-center items-center`}>
+            <div className={`w-full h-full z-50  customIndex fixed top-0 left-0 bg-[rgba(0,0,0,0.9) ${whatch ? "flex" : "hidden"} justify-center items-center`}>
                 <div className="md:w-[750px] w-[90%] h-[400px]">
                     <div className="w-full p-3 flex justify-between items-center">
                         <span></span>
