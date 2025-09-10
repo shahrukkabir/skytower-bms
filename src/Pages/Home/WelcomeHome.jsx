@@ -11,7 +11,7 @@ import img from "../../Image/6.jpg";
 export default function WelcomeHome() {
     const [whatch, setWhatch] = useState(false);
     return (
-        <div className="bg-[#2c241e] mb-20 relative w-full ">
+        <div className="bg-[#2c241e]  relative w-full ">
             {/* -----------social icon div---------------- */}
             <div className="w-full h-[80px] z-50 customIndex static sm:absolute -top-[80px] grid sm:flex-row-reverse sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
                 <div className="w-full col-span-1 md:col-span-2 flex justify-center bg-slate-400 sm:bg-transparent sm:justify-end items-center gap-3 sm:gap-10 h-full">
