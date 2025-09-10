@@ -9,7 +9,7 @@ export default function Footer() {
     <div className="w-full flex-col text-center lg:text-left relative p-5 sm:p-10 bg-[#2c241e] flex overflow-hidden justify-center items-center">
       <img src={bgImg} alt="" className="absolute w-full sm:w-1/2 right-0 z-10  bottom-0" />
       <div className="container border-b pb-10 border-b-1 border-white mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-        <div className="w-full flex gap-2 justify-center items-center md:justify-start md:items-start">
+        <div className="w-full flex gap-2 justify-center text-white items-center md:justify-start md:items-start">
           <FaBuilding className="text-3xl" />
           <span className="text-3xl">Sky-Tower</span>
         </div>

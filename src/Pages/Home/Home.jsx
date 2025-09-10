@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ProjectOverview from "./ProjectOverview";
 import WelcomeHome from "./WelcomeHome";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="w-full">
       <Banner></Banner>
       <WelcomeHome></WelcomeHome>
+      <ProjectOverview></ProjectOverview>
     </div>
   );
 }
