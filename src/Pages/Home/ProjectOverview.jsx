@@ -14,7 +14,7 @@ export default function ProjectOverview() {
             {/* Section Header */}
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full z-10 flex flex-col justify-center items-center">
-                    <h3 className="text-xl uppercase text-[#312720] font-bold">
+                    <h3 className="text-2xl uppercase text-[#312720] font-bold">
                         building overView
                     </h3>
                     <img src={design} alt="" className="w-[250px]" />
