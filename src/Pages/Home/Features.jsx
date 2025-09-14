@@ -48,7 +48,7 @@ export default function Features() {
         </div>
 
         {/* Swiper */}
-        <div className="w-full md:w-[600px] p-3 md:absolute md:top-1/2 md:left-[650px] md:-translate-y-1/3">
+        <div className="w-full md:w-[600px] p-3 md:absolute md:top-1/2 md:left-[400px] md:-translate-y-1/3">
           <Swiper
             spaceBetween={0}
             autoplay={{

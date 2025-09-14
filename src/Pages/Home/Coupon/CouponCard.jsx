@@ -10,11 +10,10 @@ export default function CouponCard({ item }) {
             <div className="w-full absolute h-[200px] flex items-center rounded-full bg-slate-300 -top-[12%] -left-[50%]">
               <div className="w-1/2 flex flex-col justify-center items-center  absolute right-0 p-4 ">
                 <h1
-                  className={`text-center ${
-                    item.offerType === "%"
+                  className={`text-center ${item.offerType === "%"
                       ? "text-5xl font-extrabold"
                       : "text-3xl font-bold"
-                  }`}
+                    }`}
                 >
                   {item.offerType === "%"
                     ? `${item.offerDigit + item.offerType}`
@@ -39,36 +38,44 @@ export default function CouponCard({ item }) {
           </div>
         </div>
       </div>
-      {/* ------------------------------mobile copon---------------------------- */}
-      <div className="w-full block sm:hidden h-[160px] relative rounded-md overflow-hidden bg-[#ffe0ce]">
-        <div className="w-full absolute h-[200px] flex items-center rounded-full bg-slate-300 -top-[12%] -left-[50%]">
-          <div className="w-1/2 flex flex-col justify-center items-center  absolute right-0 p-4 ">
-            <h1
-              className={`text-center ${
-                item.offerType === "%"
-                  ? "text-5xl font-extrabold"
-                  : "text-3xl font-bold"
+      {/* ------------------------------mobile coupon---------------------------- */}
+      <div className="w-full block sm:hidden relative rounded-md overflow-hidden bg-[#ffe0ce] p-4 shadow-md">
+        {/* Circle background */}
+        <div className="absolute w-[180px] h-[180px] rounded-full bg-slate-300 -top-16 -left-16 opacity-40"></div>
+
+        {/* Discount section */}
+        <div className="w-full flex flex-col justify-center items-center relative z-10">
+          <h1
+            className={`text-center ${item.offerType === "%"
+                ? "text-5xl font-extrabold"
+                : "text-4xl font-bold"
               }`}
-            >
-              {item.offerType === "%"
-                ? `${item.offerDigit + item.offerType}`
-                : `${item.offerType + item.offerDigit}`}
-            </h1>
-            <small className="text-center uppercase">off on your way</small>
-          </div>
-        </div>
-        <div className="w-1/2 p-5 flex flex-col justify-center items-center absolute right-0 h-full">
-          <h1 className="text-md text-center font-extrabold uppercase">
-            copon code
+          >
+            {item.offerType === "%"
+              ? `${item.offerDigit + item.offerType}`
+              : `${item.offerType + item.offerDigit}`}
           </h1>
-          <div className="w-full border border-dashed rounded-md border-gray-500 p-1">
-            <p className="uppercase text-center">{item.code}</p>
+          <small className="text-center uppercase tracking-wide">
+            off on your way
+          </small>
+        </div>
+
+        {/* Coupon code box */}
+        <div className="mt-4 w-full">
+          <h1 className="text-md text-center font-extrabold uppercase mb-2">
+            Coupon Code
+          </h1>
+          <div className="w-full border border-dashed rounded-md border-gray-500 p-2 bg-white">
+            <p className="uppercase text-center font-semibold">{item.code}</p>
           </div>
         </div>
-        <small className="w-full p-3 text-center absolute bottom-0">
+
+        {/* Description */}
+        <small className="w-full mt-3 block text-center text-sm text-gray-700">
           {item.description}
         </small>
       </div>
+
     </div>
   );
 }
