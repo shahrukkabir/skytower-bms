@@ -1,5 +1,4 @@
 # SkyTower BMS
-)
 
 ## 🚀 Features
 - Modern UI
