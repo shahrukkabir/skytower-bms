@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import Coupon from "./Coupon/Coupon";
+import Features from "./Features";
 import ProjectOverview from "./ProjectOverview";
 import WelcomeHome from "./WelcomeHome";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <WelcomeHome></WelcomeHome>
       <ProjectOverview></ProjectOverview>
       <Coupon></Coupon>
+      <Features></Features>
     </div>
   );
 }
