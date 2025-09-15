@@ -4,6 +4,8 @@ import Features from "./Features";
 import Location from "./Location";
 import ProjectOverview from "./ProjectOverview";
 import WelcomeHome from "./WelcomeHome";
+import WeProvide from "./WeProvide";
+import Appartment from "./Apartments/Apartment"
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Coupon></Coupon>
       <Features></Features>
       <Location></Location>
+      <WeProvide></WeProvide>
+      <Appartment></Appartment>
     </div>
   );
 }

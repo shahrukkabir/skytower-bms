@@ -5,7 +5,7 @@ import design from "../../../Image/design1.png";
 
 export default function Coupon() {
     const { coupons } = useCoupon();
-    console.log(coupons);
+    // console.log(coupons);
 
     return (
         <>
