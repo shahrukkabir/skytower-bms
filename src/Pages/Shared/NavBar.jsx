@@ -2,9 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBuilding } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { RiLoginCircleFill } from "react-icons/ri";
-import LogOut from "../../Components/HomeComponents/Authentication/Logout";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
+import LogOut from "../../Authentication/Logout";
 
 export default function NavBar() {
 
@@ -89,7 +89,7 @@ export default function NavBar() {
             <img src={user.photoURL} alt="Im" className="h-full w-auto" />
           </div>
         ) : (
-          <Link className="font-bold text-white" to={"/login"}>
+          <Link className="font-bold text-white" to={"/register"}>
             <RiLoginCircleFill className="text-4xl" />
           </Link>
         )}

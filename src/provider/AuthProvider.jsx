@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
                 //remove token (if token stored in client side : Local storage, cahing , in memory)
                 localStorage.removeItem('access-token');
             }
-            console.log("State Captured", currentUser);
+            // console.log("State Captured", currentUser);
             // setLoading(false);
         });
         return () => {

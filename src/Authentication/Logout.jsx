@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
+import { AuthContext } from "../provider/AuthProvider";
 
 export default function LogOut() {
     const { signOutUser } = useContext(AuthContext);

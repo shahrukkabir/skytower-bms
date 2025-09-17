@@ -7,7 +7,7 @@ import WelcomeHome from "./WelcomeHome";
 import WeProvide from "./WeProvide";
 import Appartment from "./Apartments/Apartment"
 import Testimonial from "./Testimonial";
-import Company from "./Company";
+// import Company from "./Company";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       <WeProvide></WeProvide>
       <Appartment></Appartment>
       <Testimonial></Testimonial>
-      <Company></Company>
+      {/* <Company></Company> */}
     </div>
   );
 }
