@@ -35,25 +35,29 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
-    const updateUserProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photo
-        });
+    const updateUserProfile = (data) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, data);
     }
+
+//   const updateUserProfile = (data) => {
+//     setLoader(true);
+//     return updateProfile(auth.currentUser, data);
+//   };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             if (currentUser) {
                 //get token and store client
-                const userInfo = { email: currentUser.email };
-                axiosPublic.post('/jwt', userInfo)
-                    .then(res => {
-                        if (res.data.token) {
-                            localStorage.setItem('access-token', res.data.token);
-                            setLoading(false);
-                        }
-                    })
+                // const userInfo = { email: currentUser.email };
+                // axiosPublic.post('/jwt', userInfo)
+                //     .then(res => {
+                //         if (res.data.token) {
+                //             localStorage.setItem('access-token', res.data.token);
+                //             setLoading(false);
+                //         }
+                //     })
             }
             else {
                 //remove token (if token stored in client side : Local storage, cahing , in memory)

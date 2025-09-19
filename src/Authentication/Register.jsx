@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import { FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
-// import PageHelmet from "../components/PageHelmet";
 import registerData from "../../public/register.json";
-import { swalRegisterSuccess } from "../UI/CustomSwal";
-import useAuth from "../hooks/useAuth";
 import GoogleAuth from "./GoogleAuth";
+import useUsers from "../hooks/useUser";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -22,88 +23,48 @@ const itemVariants = {
 };
 
 const Register = () => {
-  
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const { loginWithGoogle } = useAuth();
+  const { createUser, updateUserProfile, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { axiosPublic } = useAxiosPublic();
+  const { refetch } = useUsers();
 
-  const { register } = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
 
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+  const onSubmit = (data) => {
     setLoading(true);
-
-    const { name, email, password, photoURL } = formData;
-
-    // Enhanced validation
-    if (!name || !email || !password) {
-      setError("Please fill in all required fields");
-      setLoading(false);
-      return;
-    }
-
-    if (name.length < 2) {
-      setError("Name must be at least 2 characters long");
-      setLoading(false);
-      return;
-    }
-
-    if (name.length > 50) {
-      setError("Name cannot exceed 50 characters");
-      setLoading(false);
-      return;
-    }
-
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters long");
-      setLoading(false);
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address");
-      setLoading(false);
-      return;
-    }
-
-    if (photoURL && photoURL.trim()) {
-      try {
-        new URL(photoURL);
-        if (!photoURL.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
-          setError(
-            "Photo URL must be a valid image file (jpg, jpeg, png, gif, webp)"
-          );
-          setLoading(false);
-          return;
-        }
-      } catch {
-        setError("Please enter a valid photo URL");
-        setLoading(false);
-        return;
-      }
-    }
-
-    const result = await register(
-      name,
-      email,
-      password,
-      photoURL.trim() || null
-    );
-
-    if (result.success) {
-      await swalRegisterSuccess(name);
-      navigate("/");
-    } else {
-      setError(result.error);
-    }
-
-    setLoading(false);
+    createUser(data.email, data.password)
+      .then(() => {
+        return updateUserProfile({
+          displayName: data.name,
+          photoURL: data.imageUrl,
+        });
+      })
+      .then(() => {
+        reset();
+        navigate(location.state ? location.state : "/");
+        toast.success(`${data.name} successfully signed up`, {
+          duration: 2000,
+        });
+        return axiosPublic.post("/users", {
+          name: data.name,
+          image: data.imageUrl,
+          email: data.email,
+          position: "user",
+        });
+      })
+      .then(() => {
+        refetch();
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
 
@@ -128,7 +89,7 @@ const Register = () => {
               Join us today and start your journey.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
               {/* Name Field */}
               <div>
                 <label className="block text-sm font-medium text-base-content/80 mb-1">Name</label>
@@ -138,8 +99,12 @@ const Register = () => {
                   placeholder="Enter your full name"
                   className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
                 />
+                {errors.name && (
+                  <p className="text-xs text-red-500 ml-2 mt-1">{errors.name.message}</p>
+                )}
+
               </div>
-              {/* Photo URL Field */}
+              {/* Image URL Field */}
               <div>
                 <label className="block text-sm font-medium text-base-content/80 mb-1">Image URL</label>
                 <input
@@ -148,6 +113,9 @@ const Register = () => {
                   placeholder="Enter image URL"
                   className="w-full pl-10 pr-3 py-2 border  border-gray-300 rounded"
                 />
+                {errors.imageUrl && (
+                  <p className="text-red-500 text-xs ml-2 mt-1">{errors.imageUrl.message}</p>
+                )}
               </div>
 
               {/* Email Field */}
@@ -159,6 +127,9 @@ const Register = () => {
                   placeholder="you@example.com"
                   className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs ml-2 mt-1">{errors.email.message}</p>
+                )}
               </div>
 
               {/* Password Field */}
@@ -185,6 +156,9 @@ const Register = () => {
                     {showPassword ? <FiEyeOff /> : <FiEye />}
                   </span>
                 </div>
+                {errors.password && (
+                  <p className="text-red-500 text-xs ml-2 mt-1">{errors.password.message}</p>
+                )}
               </div>
 
               <div className="pt-2">
@@ -207,7 +181,7 @@ const Register = () => {
 
             <div className="divider my-3">OR</div>
 
-          <GoogleAuth></GoogleAuth>
+            <GoogleAuth></GoogleAuth>
 
             <motion.p variants={itemVariants} transition={{ delay: 0.6, duration: 0.5 }} className="mt-3 text-center text-sm text-base-content/70">
               Already have an account?{" "}

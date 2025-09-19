@@ -1,33 +1,54 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaBuilding } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { RiLoginCircleFill } from "react-icons/ri";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 import LogOut from "../../Authentication/Logout";
 
 export default function NavBar() {
-
   const [callBox, setCallBox] = useState(false);
-
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
 
+  const profileBoxRef = useRef(null);
+  const profileIconRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileBoxRef.current &&
+        !profileBoxRef.current.contains(event.target) &&
+        profileIconRef.current &&
+        !profileIconRef.current.contains(event.target)
+      ) {
+        setCallBox(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   //Profile Link Box
   const ProfileLinkBox = (
-    <div className={`absolute bg-[rgba(0,0,0,0.4)] top-[80px] ${callBox ? "right-4" : "-right-[120%]"} p-5 w-[250px] flex flex-col justify-center items-center gap-2 border-2 border-white`}>
+    <div ref={profileBoxRef} className={`absolute bg-[rgba(0,0,0,0.4)] top-[80px] ${callBox ? "right-4" : "-right-[120%]"} p-5 w-[250px] flex flex-col justify-center items-center gap-2 border-2 border-white transition-all duration-300`} >
       <h3 className="uppercase cursor-none text-white letterSpaceing">
         {user ? user.displayName : ""}
       </h3>
       {isAdmin ? (
-        <NavLink to={"/adminDeshboard"} className={`text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}>
-          DESHBOARD
+        <NavLink
+          to={"/adminDashboard"}
+          className={`text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}
+        >
+          DASHBOARD
         </NavLink>
       ) : (
         <NavLink
-          to={"/userDeshboard"} className={` text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}>
-          DESHBOARD
+          to={"/userDashboard"}
+          className={` text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}
+        >
+          DASHBOARD
         </NavLink>
       )}
       <LogOut></LogOut>
@@ -68,9 +89,7 @@ export default function NavBar() {
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost text-3xl text-white">
-            {/* Hamburger Icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[rgba(0,0,0,0.6)] rounded-box w-52">
             {navItems}
@@ -85,7 +104,7 @@ export default function NavBar() {
       <div className="w-[35%] navbar-end ml-7 md:w-[80%] justify-end">
         <ul className="menu menu-horizontal px-1 hidden lg:flex">{navItems}</ul>
         {user ? (
-          <div onClick={() => setCallBox(!callBox)} className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">
+          <div ref={profileIconRef} onClick={() => setCallBox(!callBox)} className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">
             <img src={user.photoURL} alt="Im" className="h-full w-auto" />
           </div>
         ) : (

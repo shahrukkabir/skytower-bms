@@ -9,7 +9,8 @@ import router from './Router/Router'
 import AuthProvider from './provider/AuthProvider'
 import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query'
 import { HelmetProvider } from '@vuer-ai/react-helmet-async'
-import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
+// import { ToastContainer } from 'react-toastify'
 
 const queryClient = new QueryClient()
 
@@ -20,7 +21,7 @@ createRoot(document.getElementById('root')).render(
         <HelmetProvider>
           <>
             <RouterProvider router={router} />
-            <ToastContainer position="top-right" autoClose={2000} />
+            <Toaster position="top-right" reverseOrder={false} />
           </>
         </HelmetProvider>
       </QueryClientProvider>
