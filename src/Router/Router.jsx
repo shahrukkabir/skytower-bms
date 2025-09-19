@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import AllCoupons from "../Pages/Home/Coupon/AllCoupons";
 import Allappartments from "../Pages/Home/Apartments/AllAppartments";
 import Register from "../Authentication/Register";
+import Login from "../Authentication/Login";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/appartment",
         element: <Allappartments></Allappartments>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
       },
       {
         path: '/register',
