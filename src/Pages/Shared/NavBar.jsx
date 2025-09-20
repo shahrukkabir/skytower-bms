@@ -89,7 +89,7 @@ export default function NavBar() {
           <div
             ref={profileIconRef}
             onClick={() => setCallBox(!callBox)}
-            className="h-[50px] w-[50px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden"
+            className="h-[40px] w-[40px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden"
           >
             <img src={user.photoURL} alt="Im" className="h-full w-auto" />
           </div>

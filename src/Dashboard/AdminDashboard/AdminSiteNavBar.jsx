@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaDeleteLeft, FaList } from "react-icons/fa6";
 import { RiCoupon2Fill } from "react-icons/ri";
 import { MdAdminPanelSettings, MdContacts, MdHistoryEdu, MdRememberMe, } from "react-icons/md";
+import { FaBuilding } from "react-icons/fa";
 import { SiGotomeeting } from "react-icons/si";
 import { GrAnnounce } from "react-icons/gr";
 import { TbMapPause } from "react-icons/tb";
@@ -30,7 +31,7 @@ export default function AdminSiteNavBar() {
                 </NavLink>
             </div>
             <div className="w-full flex flex-col gap-1 pb-5 mb-5 border-b">
-                <NavLink to={"/adminDeshboard"} className={`flex justify-Center uppercase items-center gap-3 pl-3 hover:pl-5 w-full shadow-md text-white font-bold p-1 `}>
+                <NavLink to={"/adminDashboard"} className={`flex justify-Center uppercase items-center gap-3 pl-3 hover:pl-5 w-full shadow-md text-white font-bold p-1 `}>
                     <MdAdminPanelSettings /> Admin Profile
                 </NavLink>
                 <NavLink to={`/ManageMembers`} className={` flex justify-Center items-center uppercase gap-3 pl-3 hover:pl-5 w-full shadow-md text-white font-bold p-1 `}>

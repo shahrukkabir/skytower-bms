@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import { FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
 import registerData from "../../public/register.json";
 import GoogleAuth from "./GoogleAuth";
-import useUsers from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";

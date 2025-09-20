@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
-import useUsers from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 

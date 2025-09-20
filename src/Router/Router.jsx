@@ -6,6 +6,9 @@ import Allappartments from "../Pages/Home/Apartments/AllAppartments";
 import Register from "../Authentication/Register";
 import Login from "../Authentication/Login";
 import HomeError from './../Components/HomeError';
+import AdminDashboardLayout from "../Dashboard/AdminDashboard/AdminDashboardLayout";
+import AdminRoute from "../Router/AdminRoute"
+import AdminProfile from './../Dashboard/AdminDashboard/AdminProfile';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
         element: <Allappartments></Allappartments>,
       },
       {
-        path: '/login', 
+        path: '/login',
         element: <Login></Login>
       },
       {
@@ -37,6 +40,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: <AdminDashboardLayout></AdminDashboardLayout>,
+    children: [
+      {
+        path: "/admindashboard",
+        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
+      }
+    ]
   }
 ]);
 

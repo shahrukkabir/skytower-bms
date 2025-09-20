@@ -1,14 +1,13 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import useUsers from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
 
 export default function AdminRoute({ children }) {
-
     const { user, loading } = useAuth();
     const location = useLocation();
     const { users } = useUsers();
 
-    const findUser = user ? users.find((user) => user.email === user.email) : null;
+    const findUser = user ? users.find((u) => u.email === user.email) : null;
 
     if (loading) {
         return (
@@ -17,12 +16,11 @@ export default function AdminRoute({ children }) {
             </div>
         );
     }
-
     if (findUser && findUser.position === "admin") {
         return children;
     }
 
     return (
-        <Navigate state={location.pathname} to="/userDeshboard" replace={true} />
+        <Navigate state={location.pathname} to="/userDashboard" replace={true} />
     );
 }

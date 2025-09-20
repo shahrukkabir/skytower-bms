@@ -9,7 +9,7 @@ import loginData from "../../public/login.json";
 import { Helmet } from 'react-helmet-async';
 import GoogleAuth from "./GoogleAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
-import useUsers from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
 import { useForm } from "react-hook-form";
 
 const pageVariants = {

@@ -1,4 +1,4 @@
-import useUser from "./useUser";
+import useUser from "./useUsers";
 import Swal from "sweetalert2";
 import useAxiosPublic from "./useAxiosPublic";
 
