@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useCoupon from "../../../hooks/useCoupon";
 import BGimg from "../../../Image/east.jpg";
 import CouponCard from "./CouponCard";
@@ -6,6 +7,7 @@ export default function AllCoupons() {
   const { coupons } = useCoupon();
   return (
     <div className="w-full ">
+      <Helmet><title>SkyTower | Coupons</title></Helmet>
       <div
         className="w-full h-[500px] flex justify-center items-center bg-center bg-fixed bg-cover bg-no-repeat"
         style={{

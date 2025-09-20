@@ -3,6 +3,7 @@ import BGimg from "../../../Image/slide2.jpg";
 import AppartmentCard from "./AppartmentCard";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAppartmantsPasition from "../../../hooks/useAppartmantsPasition";
+import { Helmet } from "react-helmet-async";
 
 export default function Allappartments() {
   const { axiosPublic } = useAxiosPublic();
@@ -23,6 +24,7 @@ export default function Allappartments() {
 
   return (
     <div className="w-full">
+      <Helmet><title>SkyTower | Appartments</title></Helmet>
       <div
         className="w-full h-[600px] flex justify-center items-center bg-center bg-fixed bg-cover bg-no-repeat"
         style={{
