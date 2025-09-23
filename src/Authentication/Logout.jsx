@@ -19,10 +19,7 @@ export default function LogOut() {
   };
 
   return (
-    <button
-      onClick={handleSignOut}
-      className="text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]"
-    >
+    <button onClick={handleSignOut} className="text-center w-full shadow-md text-white  hover:bg-[#c78960] font-bold p-1 border border-[rgba(141,141,141,0.4)]">
       LOGOUT
     </button>
   );

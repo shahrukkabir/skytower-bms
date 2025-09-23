@@ -23,10 +23,7 @@ export default function Coupon() {
                     ))}
                 </div>
                 <div className="w-full flex mt-10 justify-center items-center">
-                    <Link
-                        to="/allcoupons"
-                        className="px-5 p-2 border-b-2 hover:bg-[#c78960] hover:text-[#2c241e] border-[#c78960] text-[#c78960]"
-                    >
+                    <Link to="/allcoupons" className="px-5 p-2 border-b-2 hover:bg-[#c78960] hover:text-[#2c241e] border-[#c78960] text-[#c78960]">
                         See All Coupon
                     </Link>
                 </div>

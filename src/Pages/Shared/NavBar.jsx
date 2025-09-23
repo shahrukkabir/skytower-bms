@@ -16,12 +16,7 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        profileBoxRef.current &&
-        !profileBoxRef.current.contains(event.target) &&
-        profileIconRef.current &&
-        !profileIconRef.current.contains(event.target)
-      ) {
+      if (profileBoxRef.current && !profileBoxRef.current.contains(event.target) && profileIconRef.current && !profileIconRef.current.contains(event.target)) {
         setCallBox(false);
       }
     };
@@ -38,17 +33,11 @@ export default function NavBar() {
         {user ? user.displayName : ""}
       </h3>
       {isAdmin ? (
-        <NavLink
-          to={"/adminDashboard"}
-          className={`text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}
-        >
+        <NavLink to={"/adminDashboard"} className={`text-center w-full shadow-md text-white font-bold  hover:bg-[#c78960]  p-1 border border-[rgba(141,141,141,0.4)]`}>
           DASHBOARD
         </NavLink>
       ) : (
-        <NavLink
-          to={"/userDashboard"}
-          className={` text-center w-full shadow-md text-white font-bold p-1 border border-[rgba(141,141,141,0.4)]`}
-        >
+        <NavLink to={"/userDashboard"} className={` text-center w-full shadow-md text-white font-bold  hover:bg-[#c78960]  p-1 border border-[rgba(141,141,141,0.4)]`} >
           DASHBOARD
         </NavLink>
       )}
