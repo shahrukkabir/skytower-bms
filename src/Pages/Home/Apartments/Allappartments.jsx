@@ -45,29 +45,15 @@ export default function Allappartments() {
       </div>
       <div className="w-full pt-10 pb-5 flex justify-center items-center">
         <div className="join">
-          <button
-            onClick={() => setGetCurrentPage((prev) => Math.max(prev - 1, 0))}
-            className="join-item btn"
-          >
+          <button onClick={() => setGetCurrentPage((prev) => Math.max(prev - 1, 0))} className="join-item btn">
             «
           </button>
           {pages.map((page) => (
-            <button
-              key={page}
-              className={`join-item btn ${
-                getCurrentPage === page ? "bg-[#c78960]" : ""
-              }`}
-              onClick={() => setGetCurrentPage(page)}
-            >
+            <button key={page} className={`join-item btn ${getCurrentPage === page ? "bg-[#c78960]" : ""}`} onClick={() => setGetCurrentPage(page)}>
               {page + 1}
             </button>
           ))}
-          <button
-            onClick={() =>
-              setGetCurrentPage((prev) => Math.min(prev + 1, numberOfPages - 1))
-            }
-            className="join-item btn"
-          >
+          <button onClick={() => setGetCurrentPage((prev) => Math.min(prev + 1, numberOfPages - 1))} className="join-item btn">
             »
           </button>
         </div>

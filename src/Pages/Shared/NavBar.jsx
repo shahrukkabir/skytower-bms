@@ -68,18 +68,14 @@ export default function NavBar() {
           </ul>
         </div>
         <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center">
-          <FaBuilding className="text-2xl lg:text-3xl " />
+          <FaBuilding className="text-2xl lg:text-3xl" />
           <span className="text-3xl">Sky-Tower</span>
         </NavLink>
       </div>
       <div className="navbar-end">
         <ul className="menu menu-horizontal px-1 hidden lg:flex">{navItems}</ul>
         {user ? (
-          <div
-            ref={profileIconRef}
-            onClick={() => setCallBox(!callBox)}
-            className="h-[40px] w-[40px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden"
-          >
+          <div ref={profileIconRef} onClick={() => setCallBox(!callBox)} className="h-[40px] w-[40px] mr-3 flex justify-center cursor-pointer shadow-md items-center rounded-full overflow-hidden">
             <img src={user.photoURL} alt="Im" className="h-full w-auto" />
           </div>
         ) : (

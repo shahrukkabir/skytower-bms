@@ -80,7 +80,7 @@ export default function WelcomeHome() {
                             stone bring a rich tactility to the rooms.
                         </p>
                         <p className="text-center lg:text-justify text-white text-lg mb-10 lg:mr-18 lg:ml-24">
-                            The design for LuxTower came from looking at the citys existing
+                            The design for SkyTower came from looking at the citys existing
                             buildings and thinking about which ones you might want to live in,
                             not just look at.
                         </p> 
