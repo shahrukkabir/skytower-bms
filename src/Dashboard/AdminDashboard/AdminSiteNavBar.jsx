@@ -65,19 +65,19 @@
                             <NavLink to={`/manageMember`} onClick={handleLinkClick} className={navLinkClass}>
                                 <MdRememberMe /> Manage Members
                             </NavLink>
-                            <NavLink to={`/MakeAnnouncement`} onClick={handleLinkClick} className={navLinkClass}>
-                                <GrAnnounce /> Make Announcement
-                            </NavLink>
-                            <NavLink to={`/AgreementRequests`} onClick={handleLinkClick} className={navLinkClass}>
+                            <NavLink to={`/agreementRequest`} onClick={handleLinkClick} className={navLinkClass}>
                                 <SiGotomeeting /> Agreement Requests
                             </NavLink>
-                            <NavLink to={`/ManageCoupons`} onClick={handleLinkClick} className={navLinkClass}>
+                            <NavLink to={`/makeAnnouncement`} onClick={handleLinkClick} className={navLinkClass}>
+                                <GrAnnounce /> Make Announcement
+                            </NavLink>
+                            <NavLink to={`/manageCoupons`} onClick={handleLinkClick} className={navLinkClass}>
                                 <RiCoupon2Fill /> Manage Coupons
                             </NavLink>
-                            <NavLink to={`/contactmessage`} onClick={handleLinkClick} className={navLinkClass}>
+                            <NavLink to={`/contactMessage`} onClick={handleLinkClick} className={navLinkClass}>
                                 <MdContacts /> Contact Messages
                             </NavLink>
-                            <NavLink to={`/adminpaymenthistory`} onClick={handleLinkClick} className={navLinkClass}>
+                            <NavLink to={`/adminPaymenthistory`} onClick={handleLinkClick} className={navLinkClass}>
                                 <MdHistoryEdu /> Payment History
                             </NavLink>
                         </div>

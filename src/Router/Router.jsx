@@ -10,6 +10,7 @@ import AdminDashboardLayout from "../Dashboard/AdminDashboard/AdminDashboardLayo
 import AdminRoute from "../Router/AdminRoute"
 import AdminProfile from './../Dashboard/AdminDashboard/AdminProfile';
 import ManageMember from "../Dashboard/AdminDashboard/ManageMember/ManageMember";
+import AgreementRequest from "../Dashboard/AdminDashboard/AgreementRequest/AgreementRequest";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         path: "/manageMember",
         element: <AdminRoute><ManageMember></ManageMember></AdminRoute>
       },
+      {
+        path: "/agreementRequest",
+        element: <AdminRoute><AgreementRequest></AgreementRequest></AdminRoute>
+      }
     ]
   }
 ]);
