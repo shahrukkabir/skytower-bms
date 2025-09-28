@@ -1,28 +1,42 @@
 import { MdCancel, MdCheckCircle } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useHandleMember from "../../../hooks/useHandleMember";
-import useDeleteAgreement from "../../../hooks/useDeleteAgreement";
+import toast from "react-hot-toast";
+import useHandleMemberByEmail from "../../../hooks/useHandleMemberByEmail";
+import useDeleteAgreement from './../../../hooks/useDeleteAgreement';
 
 export default function AgreementTableRow({ agreement, refetch }) {
   const { axiosPublic } = useAxiosPublic();
-  const [handlemember] = useHandleMember();
-  const [handleDelete] = useDeleteAgreement();
-
-  const handlAcceptStatus = (data, id) => {
-    axiosPublic.patch(`/agreements/${id}`, data)
-      .then(() => {
-        refetch();
-        Swal.fire({ icon: "success", title: "Member Status updated", showConfirmButton: false, timer: 1500 });
-      })
-      .catch(() => {
-        Swal.fire({ icon: "error", title: "Something went wrong!", showConfirmButton: false, timer: 1500 });
-      });
-  };
+  const [handlemember] = useHandleMemberByEmail();
+  const handleDelete = useDeleteAgreement();
 
   const handleAccept = (data, email) => {
-    handlAcceptStatus({ Status: "Accept" }, data._id);
-    handlemember({ position: "member" }, email);
+    console.log(data);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to accept this agreement and update role?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#bb7f56",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, accept it!",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          axiosPublic.patch(`/agreements/${data._id}`, { Status: "Accept" })
+            .then(() => {
+              refetch();
+              handlemember({ position: "member" }, email);
+              // toast.success("Agreement accepted & role updated!");
+            })
+            .catch(() => {
+              toast.error("Something went wrong while updating!");
+            });
+        } else {
+          toast.error("Update cancelled!");
+        }
+      });
   };
 
   return (

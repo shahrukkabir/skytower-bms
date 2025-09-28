@@ -5,7 +5,7 @@ import useDeleteMember from "../../../hooks/useDeleteMember";
 import useHandleMember from "../../../hooks/useHandleMember";
 
 export default function ManageRow({ item }) {
-    const { image, name, email, position, _id } = item;
+    const { image, name, email, position, _id } = item;    
     const [handlemember] = useHandleMember();
     const handleUserDelete = useDeleteMember();
 

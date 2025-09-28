@@ -5,75 +5,21 @@ import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
 import useHandleMemberByEmail from "../../../hooks/useHandleMemberByEmail";
+import toast from "react-hot-toast";
 
 export default function AppartmentCard({ apartmentData }) {
     const { axiosPublic } = useAxiosPublic();
-    const { LogedUser } = useAuth();
+    const { user } = useAuth();
     const { agreements, AgreeRefetch } = useAgreements();
     const navigate = useNavigate();
     const [handlemember] = useHandleMemberByEmail();
 
     const userHasAgreement = agreements.some(
-        (agreement) => agreement.User_email === LogedUser?.email
+        (agreement) => agreement.User_email === user?.email
     );
-
-    const handleBookingAppartment = (data) => {
-        if (!LogedUser) {
-            Swal.fire({
-                icon: "info",
-                title: "Please login first",
-                text: "You need to log in to make an agreement.",
-                confirmButtonText: "Login",
-            }).then(() => {
-                navigate("/login");
-            });
-            return;
-        }
-
-        if (userHasAgreement) {
-            Swal.fire({
-                icon: "error",
-                title: "Agreement already exists",
-                text: "You can only have one agreement at a time.",
-            });
-            return;
-        }
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "One user can agreement for only one apartment!",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Agreement",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosPublic.post("/agreements", data)
-                    .then(() => {
-                        handlemember({ position: "user" }, LogedUser.email);
-                        AgreeRefetch();
-                        Swal.fire({
-                            icon: "success",
-                            title: "Agreement added successfully",
-                            showConfirmButton: false,
-                            timer: 1500,
-                        });
-                    })
-                    .catch((err) => {
-                        console.error(err.message);
-                        Swal.fire({
-                            icon: "error",
-                            title: "Something went wrong!",
-                            text: err.message,
-                        });
-                    });
-            }
-        });
-    };
-
     const data = {
-        User_name: LogedUser?.displayName || "",
-        User_email: LogedUser?.email || "",
+        User_name: user?.displayName || "",
+        User_email: user?.email || "",
         Block_name: apartmentData.blockName,
         floorNo: apartmentData.floorNo,
         Apartment_no: apartmentData.apartmentNo,
@@ -82,7 +28,38 @@ export default function AppartmentCard({ apartmentData }) {
         Status: "pending",
         date: new Date().toLocaleDateString(),
     };
-
+    const handleBookingAppartment = (data) => {
+        if (!user) {
+            toast.error("Please login first!");
+            navigate("/login");
+            return;
+        }
+        if (userHasAgreement) {
+            toast.error("Agreement already exists! You can only have one agreement at a time.");
+            return;
+        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "One user can make an agreement for only one apartment!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#bb7f56",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, confirm",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosPublic.post("/agreements", data)
+                    .then(() => {
+                        handlemember({ position: "user" }, user.email);
+                        AgreeRefetch();
+                        toast.success("Agreement added successfully!");
+                    })
+                    .catch((err) => {
+                        toast.error(`Something went wrong: ${err.message}`);
+                    });
+            }
+        });
+    }
     return (
         <div className="max-w-md w-full border border-[#c78960]/70 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
             <img

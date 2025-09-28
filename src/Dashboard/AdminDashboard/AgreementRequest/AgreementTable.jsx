@@ -28,10 +28,10 @@ export default function AgreementTable({ searchTerm }) {
 
   return (
     <div className="min-w-[850px]">
-      <table className="w-full table-fixed border-collapse rounded-lg border">
+      <table className="w-full table-fixed border-collapse border">
         <thead>
           <tr className="bg-[#504211] text-white uppercase">
-            <th className="p-3 w-[150px] text-center rounded-l-lg">Name</th>
+            <th className="p-3 w-[150px] text-center rounded-tl-lg">Name</th>
             <th className="p-3 w-[220px] text-center">Email</th>
             <th className="p-3 w-[70px] text-center">Floor</th>
             <th className="p-3 w-[70px] text-center">Block</th>
@@ -39,7 +39,7 @@ export default function AgreementTable({ searchTerm }) {
             <th className="p-3 w-[90px] text-center">Rent</th>
             <th className="p-3 w-[110px] text-center">Date</th>
             <th className="p-3 w-[110px] text-center">Status</th>
-            <th className="p-3 w-[120px] text-center rounded-r-lg">Action</th>
+            <th className="p-3 w-[120px] text-center rounded-tr-lg">Action</th>
           </tr>
         </thead>
 

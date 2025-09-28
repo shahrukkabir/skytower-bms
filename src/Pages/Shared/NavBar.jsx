@@ -28,7 +28,7 @@ export default function NavBar() {
 
   //Profile Link Box
   const ProfileLinkBox = (
-    <div ref={profileBoxRef} className={`absolute bg-[rgba(0,0,0,0.6)] backdrop-blur-md top-[80px] ${callBox ? "right-4" : "-right-[120%]"} p-5 w-[250px] flex flex-col justify-center items-center gap-2 border-2 border-white rounded-lg transition-all duration-300`}>
+    <div ref={profileBoxRef} className={`absolute bg-[rgba(0,0,0,0.6)] backdrop-blur-md top-[80px] ${callBox ? "right-4" : "-right-[120%]"} p-5 w-[250px] flex flex-col justify-center items-center gap-2 border-2 border-white  transition-all duration-300`}>
       <h3 className="uppercase cursor-none text-white letterSpaceing">
         {user ? user.displayName : ""}
       </h3>

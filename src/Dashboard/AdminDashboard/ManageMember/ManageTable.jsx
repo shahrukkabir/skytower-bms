@@ -32,15 +32,15 @@ export default function ManageTable({ searchTerm }) {
 
   return (
     <div className="min-w-[850px]">
-      <table className="w-full table-fixed border-collapse border rounded-lg">
+      <table className="w-full table-fixed border-collapse border">
         <thead>
           <tr className="bg-[#504211] text-white uppercase">
-            <th className="p-3 w-[80px] text-center rounded-l-lg">Image</th>
+            <th className="p-3 w-[80px] text-center rounded-tl-lg">Image</th>
             <th className="p-3 w-[180px] text-center">Name</th>
             <th className="p-3 w-[250px] text-center">Email</th>
             <th className="p-3 w-[140px] text-center">Status</th>
             <th className="p-3 w-[100px] text-center">Remove</th>
-            <th className="p-3 w-[130px] text-center rounded-r-lg">Action</th>
+            <th className="p-3 w-[130px] text-center rounded-tr-lg">Action</th>
           </tr>
         </thead>
 

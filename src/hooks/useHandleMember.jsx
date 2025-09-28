@@ -13,13 +13,13 @@ export default function useHandleMember() {
       text: "Do you want to update this member's position?",
       icon: "question",
       showCancelButton: true,
+      iconColor: "#bb7f56",
       confirmButtonColor: "#bb7f56",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic
-          .patch(`/users/${id}`, { position: data.position })
+        axiosPublic.patch(`/users/${id}`, { position: data.position })
           .then((res) => {
             if (res.data.modifiedCount > 0) {
               refetch();
@@ -31,7 +31,8 @@ export default function useHandleMember() {
           .catch(() => {
             toast.error("Something went wrong while updating!");
           });
-      } else {
+      }
+      else {
         toast.error("Update cancelled!");
       }
     });

@@ -29,7 +29,8 @@ export default function useDeleteMember() {
             console.error("Delete request error:", error);
             toast.error("Failed to delete the user.");
           });
-      } else {
+      } 
+      else {
         toast.error("Deletion cancelled");
       }
     });
