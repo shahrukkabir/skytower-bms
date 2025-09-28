@@ -10,9 +10,7 @@ export default function AgreementTableRow({ agreement, refetch }) {
   const [handlemember] = useHandleMemberByEmail();
   const handleDelete = useDeleteAgreement();
 
-  const handleAccept = (data, email) => {
-    console.log(data);
-    
+  const handleAccept = (data, email) => {    
     Swal.fire({
       title: "Are you sure?",
       text: "Do you want to accept this agreement and update role?",

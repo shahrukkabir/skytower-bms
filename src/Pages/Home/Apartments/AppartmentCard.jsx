@@ -102,10 +102,7 @@ export default function AppartmentCard({ apartmentData }) {
                     </div>
                 </div>
 
-                <button
-                    onClick={() => handleBookingAppartment(data)}
-                    className="w-full bg-[#c78960] text-white font-semibold py-2.5 rounded-full shadow-md hover:bg-[#b06f4f] transition duration-300"
-                >
+                <button onClick={() => handleBookingAppartment(data)} className="w-full bg-[#c78960] text-white font-semibold py-2.5 rounded-full shadow-md hover:bg-[#b06f4f] transition duration-300">
                     Agreement
                 </button>
             </div>

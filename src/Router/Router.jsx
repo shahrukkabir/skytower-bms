@@ -11,6 +11,7 @@ import AdminRoute from "../Router/AdminRoute"
 import AdminProfile from './../Dashboard/AdminDashboard/AdminProfile';
 import ManageMember from "../Dashboard/AdminDashboard/ManageMember/ManageMember";
 import AgreementRequest from "../Dashboard/AdminDashboard/AgreementRequest/AgreementRequest";
+import MakeAnnouncement from "../Dashboard/AdminDashboard/Announcement/MakeAnnouncement";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/agreementRequest",
         element: <AdminRoute><AgreementRequest></AgreementRequest></AdminRoute>
+      },
+      {
+        path: "/makeAnnouncement",
+        element: <AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute>
       }
     ]
   }
