@@ -23,7 +23,7 @@ export default function AppartmentCard({ apartmentData }) {
         Block_name: apartmentData.blockName,
         floorNo: apartmentData.floorNo,
         Apartment_no: apartmentData.apartmentNo,
-        id: apartmentData._id,
+        Apartment_id: apartmentData._id,
         Rent: apartmentData.rent,
         Status: "pending",
         date: new Date().toLocaleDateString(),
@@ -35,7 +35,7 @@ export default function AppartmentCard({ apartmentData }) {
             return;
         }
         if (userHasAgreement) {
-            toast.error("Agreement already exists! You can only have one agreement at a time.");
+            toast.error("You can only have one agreement at a time.");
             return;
         }
         Swal.fire({

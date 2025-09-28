@@ -12,7 +12,7 @@ export default function AgreementTableRow({ agreement, refetch }) {
 
   const handleAccept = (data, email) => {
     console.log(data);
-
+    
     Swal.fire({
       title: "Are you sure?",
       text: "Do you want to accept this agreement and update role?",
@@ -28,7 +28,12 @@ export default function AgreementTableRow({ agreement, refetch }) {
             .then(() => {
               refetch();
               handlemember({ position: "member" }, email);
-              // toast.success("Agreement accepted & role updated!");
+              if(data.Status == "Accept"){
+                toast.error("Agreement already updated!");
+              }
+              else{
+                toast.success("Agreement accepted & role updated!");
+              }
             })
             .catch(() => {
               toast.error("Something went wrong while updating!");
@@ -66,7 +71,7 @@ export default function AgreementTableRow({ agreement, refetch }) {
             <MdCheckCircle className="text-lg" />
           </button>
         </div>
-      </td>
+      </td> 
     </tr>
   );
 }
