@@ -1,6 +1,6 @@
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import toast from "react-hot-toast";
 import useAnnouncement from "../../../hooks/useAnnouncement";
 
 export default function AnnouncementForm() {
@@ -22,16 +22,16 @@ export default function AnnouncementForm() {
     };
 
     return (
-        <div className="w-full border  rounded-xl mt-16 shadow-md p-6 bg-white">
+        <div className="w-full border rounded-xl mt-16 shadow-md p-6 bg-white">
             <h1 className="text-2xl text-center mb-6 font-semibold text-[#25201c]">Add Announcement</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 {/* Title */}
                 <div>
                     <label className="block text-[#2c241e] font-medium">Title*</label>
                     <input type="text" placeholder="Enter Title" {...register("title", { required: true })}
-                        className="input w-full mt-2 border   "
+                        className="input w-full mt-2 border"
                     />
-                    {errors.title && <p className="text-red-500 text-sm">Title is required</p>}
+                    {errors.title && <p className="text-red-500 pl-2 text-sm">Title is required</p>}
                 </div>
                 {/* Date */}
                 <div>
@@ -39,9 +39,9 @@ export default function AnnouncementForm() {
                     <input
                         type="date"
                         {...register("date", { required: true })}
-                        className="input w-full mt-2 border   "
+                        className="input w-full mt-2 border"
                     />
-                    {errors.date && <p className="text-red-500 text-sm">Date is required</p>}
+                    {errors.date && <p className="text-red-500 pl-2 text-sm">Date is required</p>}
                 </div>
                 {/* Description */}
                 <div>
@@ -49,9 +49,9 @@ export default function AnnouncementForm() {
                     <textarea
                         placeholder="Enter description"
                         {...register("description", { required: true })}
-                        className="input w-full mt-2 h-[120px] border   "
+                        className="input w-full mt-2 h-[120px] border"
                     ></textarea>
-                    {errors.description && <p className="text-red-500 text-sm">Description is required</p>}
+                    {errors.description && <p className="text-red-500 pl-2 text-sm">Description is required</p>}
                 </div>
                 {/* Submit Button */}
                 <div>

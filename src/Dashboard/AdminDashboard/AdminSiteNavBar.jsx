@@ -12,11 +12,23 @@ import LogOut from "../../Authentication/Logout";
 
 export default function AdminSiteNavBar() {
     const [open, setOpen] = useState(true);
+
     useEffect(() => {
         if (window.innerWidth < 768) {
             setOpen(false);
         }
     }, []);
+    // Close on Escape key
+    useEffect(() => {
+        function onKey(e) {
+            if (e.key === "Escape") {
+                setOpen(false);
+            }
+        }
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
+
     const navLinkClass = "flex items-center uppercase gap-3 pl-4 pr-2 py-2 rounded-lg transition-all duration-300 font-semibold text-white hover:bg-[#c78960] hover:text-[#2c241e]";
     const handleLinkClick = () => {
         if (window.innerWidth < 768) {
@@ -35,9 +47,12 @@ export default function AdminSiteNavBar() {
                     )}
                 </button>
             </div>
-
+            {/* Overlay (click outside to close on mobile) */}
+            {open && (
+                <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black/50 z-40 md:hidden" />
+            )}
             {/* Sidebar */}
-            <aside className={`bg-gradient-to-b from-[#2c241e] via-[#504211] to-[#7a622f] shadow-xl h-screen absolute z-40 md:static transition-all duration-500 ${open ? "w-64 opacity-100" : "w-0 opacity-0"}`} >
+            <aside className={`fixed top-0 left-0 bg-gradient-to-b from-[#2c241e] via-[#504211] to-[#7a622f] shadow-xl h-screen z-40 md:static transition-all duration-500 ${open ? "w-64 opacity-100" : "w-0 opacity-0"}`} >
                 {open && (
                     <div className="flex flex-col h-full">
                         {/* Logo */}

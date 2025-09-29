@@ -39,7 +39,7 @@ export default function CouponCard({ item }) {
         </div>
       </div>
       {/* ------------------------------mobile coupon---------------------------- */}
-      <div className="w-full block sm:hidden relative rounded-md overflow-hidden bg-[#ffe0ce] p-4 shadow-md">
+      <div className="w-full block sm:hidden relative rounded-md overflow-hidden bg-[#e6bb9f] p-4 shadow-md">
         {/* Circle background */}
         <div className="absolute w-[180px] h-[180px] rounded-full bg-slate-300 -top-16 -left-16 opacity-40"></div>
 

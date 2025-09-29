@@ -12,6 +12,7 @@ import AdminProfile from './../Dashboard/AdminDashboard/AdminProfile';
 import ManageMember from "../Dashboard/AdminDashboard/ManageMember/ManageMember";
 import AgreementRequest from "../Dashboard/AdminDashboard/AgreementRequest/AgreementRequest";
 import MakeAnnouncement from "../Dashboard/AdminDashboard/Announcement/MakeAnnouncement";
+import ManageCoupons from "../Dashboard/AdminDashboard/ManageCoupons/ManageCoupons";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/makeAnnouncement",
         element: <AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute>
+      },
+      {
+        path: "/manageCoupons",
+        element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
       }
     ]
   }

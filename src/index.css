@@ -42,3 +42,11 @@
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;    
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;           
+}

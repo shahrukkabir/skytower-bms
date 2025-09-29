@@ -20,7 +20,7 @@ export default function AllAnnouncement() {
                 <input type="search" value={searchTerm} onChange={handleSearch} className="input sm:w-[400px] border border-[#e6bb9f] focus:border-[#bb7f56] focus:ring-[#bb7f56]" placeholder="Search by title or date" />
             </div>
             {/* Announcements */}
-            <div className="h-full p-3 space-y-4 overflow-y-auto max-h-[70vh]">
+            <div className="h-full p-3 space-y-4 overflow-y-auto max-h-[70vh] hide-scrollbar">
                 {filteredAnnouncements.length > 0 ? (
                     filteredAnnouncements.map((item) => (
                         <AnnouncementCard key={item._id} item={item} />
