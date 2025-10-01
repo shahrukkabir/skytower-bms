@@ -86,7 +86,7 @@ export default function AdminSiteNavBar() {
                                 <NavLink to={`/contactMessage`} onClick={handleLinkClick} className={navLinkClass}>
                                     <MdContacts /> Contact Messages
                                 </NavLink>
-                                <NavLink to={`/adminPaymenthistory`} onClick={handleLinkClick} className={navLinkClass}>
+                                <NavLink to={`/paymentHistory`} onClick={handleLinkClick} className={navLinkClass}>
                                     <MdHistoryEdu /> Payment History
                                 </NavLink>
                             </div>
