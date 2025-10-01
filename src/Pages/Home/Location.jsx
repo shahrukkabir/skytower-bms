@@ -8,7 +8,7 @@ import { HiOutlineHome } from "react-icons/hi2";
 
 export default function Location() {
   return (
-    <div className="w-full py-16 mb-14 bg-[#ffefe5]">
+    <div className="w-full py-16 bg-[#ffefe5]">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 md:px-10">
         
         {/* Left Content */}

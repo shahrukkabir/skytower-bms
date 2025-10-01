@@ -9,13 +9,13 @@ export default function Coupon() {
 
     return (
         <>
-            <div className="w-full my-5 lg:my-0 lg:mb-14 flex flex-col justify-center items-center">
+            <div className="w-full my-5 flex flex-col justify-center items-center">
                 <h3 className="text-2xl uppercase text-[#312720] font-bold">
                     Offers From SkyTower
                 </h3>
                 <img src={design} alt="" className="w-[250px]" />
             </div>
-            <div className="w-full py-10 mb-14 px-4 bg-[#ffefe5]">
+            <div className="w-full py-10 px-4 bg-[#ffefe5]">
 
                 <div className="max-w-[700px] xl:container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
                     {coupons.slice(0, 2).map((item) => (

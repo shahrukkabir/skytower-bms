@@ -17,12 +17,12 @@ export default function Home() {
       <Banner></Banner>
       <WelcomeHome></WelcomeHome>
       <ProjectOverview></ProjectOverview>
+      <Appartment></Appartment>
       <Coupon></Coupon>
       <Features></Features>
-      <Location></Location>
       <WeProvide></WeProvide>
-      <Appartment></Appartment>
       <Testimonial></Testimonial>
+      <Location></Location>
       {/* <Company></Company> */}
     </div>
   );

@@ -7,8 +7,7 @@ import { MdFlipCameraAndroid } from "react-icons/md";
 
 export default function WeProvide() {
   return (
-    <div
-      className="w-full min-h-screen overflow-hidden flex justify-center flex-col items-center bg-no-repeat bg-cover bg-center bg-fixed mb-14 p-2 md:p-5 xl:p-10 py-10 relative"
+    <div className="w-full min-h-screen overflow-hidden flex justify-center flex-col items-center bg-no-repeat bg-cover bg-center bg-fixed p-2 md:p-5 xl:p-10 py-10 relative"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(${bgimg})`,
       }}

@@ -27,7 +27,7 @@ export default function Features() {
   ];
 
   return (
-    <div className="w-full py-10 mb-14 bg-[#ffefe5]">
+    <div className="w-full py-10 bg-[#ffefe5]">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 relative">
         
         {/* Left side image (desktop only) */}
