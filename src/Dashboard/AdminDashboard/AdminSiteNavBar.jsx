@@ -47,7 +47,7 @@ export default function AdminSiteNavBar() {
                     )}
                 </button>
             </div>
-            {/* Overlay (click outside to close on mobile) */}
+            {/* Overlay */}
             {open && (
                 <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black/50 z-40 md:hidden" />
             )}

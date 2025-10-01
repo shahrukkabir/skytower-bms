@@ -13,6 +13,7 @@ import ManageMember from "../Dashboard/AdminDashboard/ManageMember/ManageMember"
 import AgreementRequest from "../Dashboard/AdminDashboard/AgreementRequest/AgreementRequest";
 import MakeAnnouncement from "../Dashboard/AdminDashboard/Announcement/MakeAnnouncement";
 import ManageCoupons from "../Dashboard/AdminDashboard/ManageCoupons/ManageCoupons";
+import ContactMessage from "../Dashboard/AdminDashboard/ContactMessage/ContactMessage";
 
 const router = createBrowserRouter([
   {
@@ -64,8 +65,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/manageCoupons",
-        element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
-      }
+        element: <AdminRoute> <ManageCoupons></ManageCoupons> </AdminRoute>
+      },
+      {
+        path: "/contactMessage",
+        element: <AdminRoute><ContactMessage></ContactMessage></AdminRoute>
+      },
+      
     ]
   }
 ]);

@@ -106,10 +106,10 @@ export default function UpdateCoupons({ item, handleToggleUpdate }) {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <button type="submit" className="flex-1 p-2 text-white font-semibold bg-[#c78960] hover:bg-[#bb7f56] rounded-md transition-all">
+          <button type="submit" className="flex-1 p-2 text-white font-semibold bg-[#c78960] hover:bg-[#bb7f56] transition-all">
             Update
           </button>
-          <button type="button" onClick={handleToggleUpdate} className="flex-1 p-2 font-semibold border border-gray-400 rounded-md hover:bg-gray-200 transition-all">
+          <button type="button" onClick={handleToggleUpdate} className="flex-1 p-2 font-semibold border border-gray-400 hover:bg-gray-200 transition-all">
             Cancel
           </button>
         </div>
