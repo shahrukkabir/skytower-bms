@@ -1,9 +1,10 @@
 import { FaTrash, FaPenAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 import { useState } from "react";
-import UpdateCooupons from "./UpdateCooupons";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useCoupon from "../../../hooks/useCoupon";
+import UpdateCoupons from "./UpdateCoupons";
 
 export default function ManageCouponCard({ item }) {
     const { axiosPublic } = useAxiosPublic();
@@ -13,40 +14,32 @@ export default function ManageCouponCard({ item }) {
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            text: "This coupon will be permanently deleted",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#bb7f56",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic
-                    .delete(`/coupons/${id}`)
-                    .then((response) => {
-                        if (response.status === 200) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your coupon has been deleted.",
-                                icon: "success",
+                axiosPublic.delete(`/coupons/${id}`)
+                    .then((res) => {
+                        if (res.status === 200) {
+                            toast.success("Coupon deleted successfully!", {
+                                style: { background: "#4e3423", color: "#fff" },
                             });
                             refetch();
-                        } else {
-                            Swal.fire({
-                                title: "Error!",
-                                text: "Failed to delete the coupon.",
-                                icon: "error",
-                            });
+                        }
+                        else {
+                            toast.error("Failed to delete coupon!");
                         }
                     })
-                    .catch((err) => {
-                        console.error("Delete request error:", err.message);
-                        Swal.fire({
-                            title: "Error!",
-                            text: "An error occurred while deleting the coupon.",
-                            icon: "error",
-                        });
+                    .catch(() => {
+                        toast.error("Error occurred while deleting coupon!");
                     });
+            }
+            else {
+                toast.error("Deletion cancelled");
             }
         });
     };
@@ -58,7 +51,7 @@ export default function ManageCouponCard({ item }) {
     return (
         <div className="w-full block shadow-md h-[160px] relative rounded-md overflow-hidden bg-[#ffe0ce]">
             {callUpdate && (
-                <UpdateCooupons item={item} handleToggleUpdate={handleToggleUpdate} />
+                <UpdateCoupons item={item} handleToggleUpdate={handleToggleUpdate} />
             )}
 
             {/* Action buttons in a row */}

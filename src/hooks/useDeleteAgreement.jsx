@@ -22,8 +22,7 @@ export default function useDeleteAgreement() {
     })
       .then((result) => {
         if (result.isConfirmed) {
-          axiosPublic
-            .delete(`/agreements/${id}`)
+          axiosPublic.delete(`/agreements/${id}`)
             .then(() => {
               refetch();
               AgreeRefetch();
