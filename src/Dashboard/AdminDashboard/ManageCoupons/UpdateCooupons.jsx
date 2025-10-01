@@ -8,11 +8,7 @@ export default function UpdateCooupons({ item, handleToggleUpdate }) {
   const { axiosPublic } = useAxiosPublic();
   const { refetch } = useCoupon();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ defaultValues: item });
+  const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: item });
 
   const onSubmit = (data) => {
     const dataobject = {
@@ -52,28 +48,14 @@ export default function UpdateCooupons({ item, handleToggleUpdate }) {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 h-full bg-[#030101a6] flex justify-center items-center">
-      <CiCircleRemove
-        onClick={handleToggleUpdate}
-        className="cursor-pointer text-5xl text-white absolute left-4 top-3"
-      />
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-sm mx-auto mt-8 p-6 bg-white rounded-lg shadow-md"
-      >
+      <CiCircleRemove onClick={handleToggleUpdate} className="cursor-pointer text-5xl text-white absolute left-4 top-3" />
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
         <div className="mb-4">
-          <label
-            htmlFor="offerDigit"
-            className="block text-[#2c241e] text-sm font-semibold mb-2"
-          >
+          <label htmlFor="offerDigit" className="block text-[#2c241e] text-sm font-semibold mb-2">
             Offer Digit
           </label>
-          <input
-            {...register("offerDigit", { required: false })}
-            type="number"
-            id="offerDigit"
-            className="w-full p-3 placeholder-[#2c241e] bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]"
-          />
-          {errors.offerDigit && (
+          <input {...register("offerDigit", { required: false })} type="number" id="offerDigit" className="w-full p-3 placeholder-[#2c241e] bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]" />
+          {errors.offerType && (
             <span className="text-red-500 text-sm mt-1">
               This field is required
             </span>
@@ -81,18 +63,10 @@ export default function UpdateCooupons({ item, handleToggleUpdate }) {
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="offerType"
-            className="block text-[#2c241e] text-sm font-semibold mb-2"
-          >
+          <label htmlFor="offerType" className="block text-[#2c241e] text-sm font-semibold mb-2">
             Offer Type
           </label>
-          <select
-            {...register("offerType", { required: false })}
-            id="offerType"
-            className="w-full p-3 bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]"
-            defaultValue=""
-          >
+          <select {...register("offerType", { required: false })} id="offerType" className="w-full p-3 bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]" defaultValue="" >
             <option value="" disabled>
               {item.offerType}
             </option>
@@ -107,18 +81,10 @@ export default function UpdateCooupons({ item, handleToggleUpdate }) {
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="code"
-            className="block text-[#2c241e] text-sm font-semibold mb-2"
-          >
+          <label htmlFor="code" className="block text-[#2c241e] text-sm font-semibold mb-2" >
             Code
           </label>
-          <input
-            {...register("code", { required: false })}
-            type="text"
-            id="code"
-            className="w-full p-3 placeholder-[#2c241e] bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]"
-          />
+          <input {...register("code", { required: false })} type="text" id="code" className="w-full p-3 placeholder-[#2c241e] bg-gray-200 border border-[#2c241e] rounded-md focus:outline-none focus:border-[#c78960]" />
           {errors.code && (
             <span className="text-red-500 text-sm mt-1">
               This field is required
@@ -126,28 +92,17 @@ export default function UpdateCooupons({ item, handleToggleUpdate }) {
           )}
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="description"
-            className="block text-[#2c241e] text-sm font-semibold mb-2"
-          >
+          <label htmlFor="description" className="block text-[#2c241e] text-sm font-semibold mb-2" >
             Description
           </label>
-          <textarea
-            {...register("description", { required: false })}
-            id="description"
-            className="block text-[#2c241e] text-sm h-[80px] w-full border-2 font-semibold mb-2"
-          ></textarea>
+          <textarea {...register("description", { required: false })} id="description" className="block text-[#2c241e] text-sm h-[80px] w-full border-2 font-semibold mb-2"></textarea>
           {errors.description && (
             <span className="text-red-500 text-sm mt-1">
               This field is required
             </span>
           )}
         </div>
-
-        <button
-          type="submit"
-          className="w-full p-3 bg-[#c78960] text-white font-semibold rounded-md hover:bg-[#2c241e] focus:outline-none focus:bg-[#2c241e]"
-        >
+        <button type="submit" className="w-full p-3 bg-[#c78960] text-white font-semibold rounded-md hover:bg-[#2c241e] focus:outline-none focus:bg-[#2c241e]">
           Update Coupon
         </button>
       </form>
