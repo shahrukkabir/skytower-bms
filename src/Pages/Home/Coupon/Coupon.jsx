@@ -15,7 +15,7 @@ export default function Coupon() {
                 </h3>
                 <img src={design} alt="" className="w-[250px]" />
             </div>
-            <div className="w-full py-10 mb-14 px-10 bg-[#ffefe5]">
+            <div className="w-full py-10 mb-14 px-4 bg-[#ffefe5]">
 
                 <div className="max-w-[700px] xl:container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
                     {coupons.slice(0, 2).map((item) => (

@@ -18,7 +18,7 @@ export default function AllCoupons() {
           All coupons
         </h1>
       </div>
-      <div className="max-w-[700px] px-10 py-10 xl:container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
+      <div className="max-w-[700px] px-4 py-10 xl:container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
         {coupons.map((item) => (
           <CouponCard key={item._id} item={item}></CouponCard>
         ))}

@@ -60,20 +60,29 @@ export default function ManageCouponCard({ item }) {
       {callUpdate && (
         <UpdateCooupons item={item} handleToggleUpdate={handleToggleUpdate} />
       )}
-      <FaPenAlt
-        onClick={handleToggleUpdate}
-        className="absolute top-10 right-2 text-xl z-10 cursor-pointer"
-      />
-      <FaTrash
-        onClick={() => handleDelete(item._id)}
-        className="absolute top-2 right-2 text-xl z-10 text-red-500 cursor-pointer"
-      />
+
+      {/* Action buttons in a row */}
+      <div className="absolute top-2 right-2 flex items-center gap-3 z-10">
+        <button
+          onClick={handleToggleUpdate}
+          className="p-1 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-all"
+        >
+          <FaPenAlt />
+        </button>
+        <button
+          onClick={() => handleDelete(item._id)}
+          className="p-1 rounded-md bg-red-500 text-white hover:bg-red-600 transition-all"
+        >
+          <FaTrash />
+        </button>
+      </div>
+
       <div className="w-full absolute h-[200px] flex items-center rounded-full bg-slate-300 -top-[12%] -left-[50%]">
         <div className="w-1/2 flex flex-col justify-center items-center absolute right-0 p-4">
           <h1
             className={`text-center ${
               item.offerType === "%"
-                ? "text-5xl font-extrabold"
+                ? "text-3xl font-bold"
                 : "text-3xl font-bold"
             }`}
           >
@@ -84,12 +93,15 @@ export default function ManageCouponCard({ item }) {
           <small className="text-center uppercase">off on your way</small>
         </div>
       </div>
+
       <div className="w-1/2 p-5 flex flex-col justify-center items-center absolute right-0 h-full">
-        <h1 className="text-md text-center font-extrabold uppercase">
+        <h1 className="text-md mb-2 mt-1 text-center font-extrabold uppercase">
           coupon code
         </h1>
-        <div className="w-full border border-dashed rounded-md border-gray-500 p-1">
-          <p className="uppercase text-center">{item.code}</p>
+        <div className="w-full border border-dashed rounded-md border-gray-500 p-1 bg-white">
+          <p className="uppercase text-center font-semibold tracking-wide">
+            {item.code}
+          </p>
         </div>
       </div>
     </div>

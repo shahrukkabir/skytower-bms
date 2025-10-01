@@ -38,7 +38,7 @@ export default function AdminSiteNavBar() {
     return (
         <div className="flex">
             {/* Toggle button */}
-            <div onClick={() => setOpen(!open)} className={`p-1 absolute z-50 transition-all duration-500 ${open ? "left-52" : "left-4"} top-4`}>
+            <div onClick={() => setOpen(!open)} className={`p-1 fixed z-50 transition-all duration-500 ${open ? "left-52" : "left-4"} top-4`}>
                 <button className="p-2 bg-gradient-to-r from-[#432b1b] to-[#a64a0c] text-white hover:bg-opacity-90 rounded">
                     {open ? (
                         <FaDeleteLeft className="text-lg md:text-xl" />

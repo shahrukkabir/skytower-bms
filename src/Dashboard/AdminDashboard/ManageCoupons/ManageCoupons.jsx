@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { FaBuilding } from "react-icons/fa";
-import { FaTelegram } from "react-icons/fa6";
+import { FaBuilding, FaPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
 import useCoupon from "../../../hooks/useCoupon";
@@ -42,7 +41,7 @@ export default function ManageCoupons() {
     };
 
     return (
-        <div className="w-full min-h-screen pt-2 px-3">
+        <div className="w-full min-h-screen pt-2 px-3 overflow-y-auto hide-scrollbar">
             {/* Header */}
             <div className="w-full flex flex-col gap-5 sm:flex-row justify-center sm:justify-between p-3 bg-gradient-to-r from-[#805a41] to-[#4e3423]">
                 <NavLink to={"/"} className="btn btn-ghost text-xl flex items-center ml-10">
@@ -56,43 +55,63 @@ export default function ManageCoupons() {
             </div>
 
             {/* Add Coupon Form */}
-            <div className="w-full mt-6  bg-gradient-to-r from-[#805a41] to-[#4e3423] p-6 rounded-md">
-                <h3 className="text-[#ffff] mb-3 font-semibold">Add Coupon</h3>
-                <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-6 gap-2">
-                    <input {...register("offerDigit", { required: true })}
-                        type="number" placeholder="Offer Digit"
-                        className="col-span-2 p-2 rounded  text-[#2c241e] outline-none"
+            <div className="w-full mt-6 bg-gradient-to-r from-[#805a41] to-[#4e3423] p-6 rounded-md ">
+                <h3 className="text-white mb-3 font-semibold">Add Coupon</h3>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3"
+                >
+                    {/* Offer Digit */}
+                    <input
+                        {...register("offerDigit", { required: true })}
+                        type="number"
+                        placeholder="Offer Digit"
+                        className="p-2 rounded text-[#2c241e] outline-none"
                     />
-                    <select {...register("offerType", { required: true })}
-                        defaultValue="" className="col-span-2 p-2 rounded  text-[#2c241e] outline-none">
+
+                    {/* Offer Type */}
+                    <select
+                        {...register("offerType", { required: true })}
+                        defaultValue=""
+                        className="p-2 rounded text-[#2c241e] outline-none"
+                    >
                         <option value="">Offer Type</option>
                         <option value="%">%</option>
                         <option value="$">$</option>
                     </select>
-                    <input {...register("code", { required: true })}
-                        type="text" placeholder="Code"
-                        className="col-span-2 p-2 rounded  text-[#2c241e] outline-none"
+
+                    {/* Code */}
+                    <input
+                        {...register("code", { required: true })}
+                        type="text"
+                        placeholder="Code"
+                        className="p-2 rounded text-[#2c241e] outline-none"
                     />
-                    <input {...register("description", { required: true })}
-                        type="text" placeholder="Description"
-                        className="col-span-5 p-2 rounded  text-[#2c241e] outline-none"
+
+                    {/* Description (full width in mobile, spans more in desktop) */}
+                    <input
+                        {...register("description", { required: true })}
+                        type="text"
+                        placeholder="Description"
+                        className="sm:col-span-2 lg:col-span-5 p-2 rounded text-[#2c241e] outline-none"
                     />
+
+                    {/* Button */}
                     <button
                         type="submit"
-                        className="col-span-1 flex justify-center gap-2 items-center bg-[#c78960] text-white font-semibold rounded-md hover:bg-[#bb7f56] transition-all"
+                        className="flex justify-center gap-2 items-center bg-[#c78960] text-white font-semibold rounded-md hover:bg-[#bb7f56] transition-all sm:col-span-2 lg:col-span-1"
                     >
-                        <FaTelegram />
+                        <FaPlus />
                         <span>Add</span>
                     </button>
-
                 </form>
             </div>
 
+
             {/* Coupons List */}
-            <div className="flex-1 max-h-[60vh] overflow-y-auto">
+            <div className="flex-1 max-h-[60vh] overflow-y-auto hide-scrollbar">
                 <ManageAllCopon coupons={filteredCoupons} />
             </div>
-
         </div>
     );
 }

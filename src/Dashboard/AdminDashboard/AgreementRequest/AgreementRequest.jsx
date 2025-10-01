@@ -24,7 +24,7 @@ export default function AgreementRequest() {
                     <img src={user.photoURL} alt="Profile" className="h-full " />
                 </div>
             </div>
-            <div className="w-full max-h-[calc(100vh-150px)] mt-5 overflow-scroll">
+            <div className="w-full max-h-[calc(100vh-150px)] mt-5 overflow-scroll hide-scrollbar">
                 <AgreementTable searchTerm={searchTerm} />
             </div>
         </div>
