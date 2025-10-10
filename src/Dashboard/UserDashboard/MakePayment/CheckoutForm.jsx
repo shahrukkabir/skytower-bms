@@ -1,13 +1,16 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useCoupon from "../../../hooks/useCoupon";
+import toast from "react-hot-toast";
 
 const CheckoutForm = ({ paymentData }) => {
+
     const stripe = useStripe();
     const elements = useElements();
     const { axiosPublic } = useAxiosPublic();
+    const { coupons } = useCoupon();
+
     const [getClientSecret, setGetClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState(null);
     const [cardLast4, setCardLast4] = useState(null);
@@ -15,7 +18,7 @@ const CheckoutForm = ({ paymentData }) => {
     const [finalRent, setFinalRent] = useState(paymentData.Rent);
     const [couponApplied, setCouponApplied] = useState(false);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
-    const { coupons } = useCoupon();
+
     console.log(paymentData.email);
     const data = {
         email: paymentData.email,
@@ -75,7 +78,6 @@ const CheckoutForm = ({ paymentData }) => {
             return;
         }
 
-        // Ensure transactionId and cardLast4 are set before posting the data
         const transactionId = paymentIntent.id;
         const cardLast4 = paymentMethod.card.last4;
 
@@ -90,12 +92,7 @@ const CheckoutForm = ({ paymentData }) => {
 
         axiosPublic.post("/payments", paymentDataToSend)
             .then(() => {
-                Swal.fire({
-                    icon: "success",
-                    title: "Payment successful",
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                toast.success("Payment successful!");
                 setPaymentSuccessful(true);
             })
             .catch((err) => {
@@ -130,28 +127,14 @@ const CheckoutForm = ({ paymentData }) => {
     };
 
     return (
-        <div className="w-full max-w-lg p-4 bg-white rounded shadow-md">
+        <div className="w-full mt-20 max-w-lg p-4 bg-white rounded shadow-md">
             <div className="w-full flex flex-col gap-5">
                 <p>
                     Total rent: <strong>${finalRent}</strong>
                 </p>
-                <form
-                    onSubmit={handleCoupon}
-                    className="w-full mb-7 border rounded-md overflow-hidden grid grid-cols-4"
-                >
-                    <input
-                        type="text"
-                        name="code"
-                        className="w-full outline-0 col-span-3 p-2"
-                        placeholder="Enter Coupon code"
-                        disabled={couponApplied}
-                    />
-                    <input
-                        type="submit"
-                        className="w-full bg-blue-600 text-white p-2 cursor-pointer"
-                        value="Apply"
-                        disabled={couponApplied}
-                    />
+                <form onSubmit={handleCoupon} className="w-full mb-7 border rounded-md overflow-hidden grid grid-cols-4" >
+                    <input type="text" name="code" className="w-full outline-0 col-span-3 p-2" placeholder="Enter Coupon code" disabled={couponApplied} />
+                    <input type="submit" className="w-full bg-[#bb7f56] hover:bg-[#c78960] text-white p-2 cursor-pointer" value="Apply" disabled={couponApplied} />
                 </form>
             </div>
             <form onSubmit={handleSubmit}>
@@ -173,12 +156,10 @@ const CheckoutForm = ({ paymentData }) => {
                         }}
                     />
                 </div>
-                <button
-                    type="submit"
-                    disabled={!stripe || !getClientSecret || paymentSuccessful}
+                <button type="submit" disabled={!stripe || !getClientSecret || paymentSuccessful}
                     className={`w-full py-2 px-4 font-bold rounded transition-colors duration-300 ${!stripe || !getClientSecret || paymentSuccessful
                         ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-blue-500 text-white hover:bg-blue-700"
+                        : "text-white  bg-[#bb7f56] hover:bg-[#c78960]"
                         }`}
                 >
                     Pay

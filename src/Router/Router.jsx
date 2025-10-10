@@ -20,6 +20,7 @@ import UserDashboardLayout from "../Dashboard/UserDashboard/UserDashboardLayout"
 import Announcements from "../Dashboard/UserDashboard/Announcement/Announcements";
 import MakePayment from "../Dashboard/UserDashboard/MakePayment/MakePayment";
 import PaymentSystem from "../Dashboard/UserDashboard/MakePayment/PaymentSystem";
+import UserPaymentHistory from "../Dashboard/UserDashboard/PaymentHistory/UserPaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: "/pay",
         element: <PaymentSystem></PaymentSystem>
+      },
+      {
+        path: "/userPaymentHistory",
+        element: <UserPaymentHistory></UserPaymentHistory>
       }
     ]
   }

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAgreements from "../../../hooks/useAgreements";
 import useAuth from "../../../hooks/useAuth";
-import toast from "react-hot-toast";
 
 export default function MakePayment() {
     const { user } = useAuth();
@@ -31,7 +30,6 @@ export default function MakePayment() {
         };
 
         localStorage.setItem("paymentData", JSON.stringify(formData));
-        toast.success("Payment details saved successfully!");
         navigate("/pay");
     };
 

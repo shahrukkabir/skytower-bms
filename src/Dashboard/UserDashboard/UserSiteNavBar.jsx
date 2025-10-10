@@ -73,7 +73,7 @@ export default function UserSiteNavBar() {
                                         <NavLink to={`/makePayment`} onClick={handleLinkClick} className={navLinkClass}>
                                             <RiSecurePaymentLine /> Make Payment
                                         </NavLink>
-                                        <NavLink to={`/paymentHistory`} onClick={handleLinkClick} className={navLinkClass}>
+                                        <NavLink to={`/userPaymentHistory`} onClick={handleLinkClick} className={navLinkClass}>
                                             <MdHistoryEdu /> Payment History
                                         </NavLink>
                                     </>
