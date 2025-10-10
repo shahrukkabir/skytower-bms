@@ -15,6 +15,9 @@ import MakeAnnouncement from "../Dashboard/AdminDashboard/Announcement/MakeAnnou
 import ManageCoupons from "../Dashboard/AdminDashboard/ManageCoupons/ManageCoupons";
 import ContactMessage from "../Dashboard/AdminDashboard/ContactMessage/ContactMessage";
 import PaymentHistory from "../Dashboard/AdminDashboard/PaymentHistory/PaymentHistory";
+import UserProfile from "../Dashboard/UserDashboard/userProfile";
+import UserDashboardLayout from "../Dashboard/UserDashboard/UserDashboardLayout";
+// import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -77,6 +80,16 @@ const router = createBrowserRouter([
         element: <AdminRoute><PaymentHistory></PaymentHistory></AdminRoute>
       }
 
+    ]
+  },
+  {
+    path: "/",
+    element: <UserDashboardLayout></UserDashboardLayout>,
+    children: [
+      {
+        path: "/userDashboard",
+        element: <UserProfile></UserProfile>
+      }
     ]
   }
 ]);
