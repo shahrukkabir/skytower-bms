@@ -70,16 +70,16 @@ export default function UserSiteNavBar() {
 
                                 {isMember && (
                                     <>
-                                        <NavLink to={`/MakePayment`} onClick={handleLinkClick} className={navLinkClass}>
+                                        <NavLink to={`/makePayment`} onClick={handleLinkClick} className={navLinkClass}>
                                             <RiSecurePaymentLine /> Make Payment
                                         </NavLink>
-                                        <NavLink to={`/PaymentHistory`} onClick={handleLinkClick} className={navLinkClass}>
+                                        <NavLink to={`/paymentHistory`} onClick={handleLinkClick} className={navLinkClass}>
                                             <MdHistoryEdu /> Payment History
                                         </NavLink>
                                     </>
                                 )}
 
-                                <NavLink to={`/Announcements`} onClick={handleLinkClick} className={navLinkClass}>
+                                <NavLink to={`/announcements`} onClick={handleLinkClick} className={navLinkClass}>
                                     <GrAnnounce /> Announcements
                                 </NavLink>
                             </div>

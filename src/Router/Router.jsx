@@ -17,6 +17,7 @@ import ContactMessage from "../Dashboard/AdminDashboard/ContactMessage/ContactMe
 import PaymentHistory from "../Dashboard/AdminDashboard/PaymentHistory/PaymentHistory";
 import UserProfile from "../Dashboard/UserDashboard/userProfile";
 import UserDashboardLayout from "../Dashboard/UserDashboard/UserDashboardLayout";
+import Announcements from "../Dashboard/UserDashboard/Announcement/Announcements";
 // import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "/userDashboard",
         element: <UserProfile></UserProfile>
+      },
+      {
+        path: "/announcements",
+        element: <Announcements></Announcements>
       }
     ]
   }
