@@ -9,12 +9,12 @@ export default function ManageTable({ searchTerm }) {
   useEffect(() => {
     if (searchTerm === "") {
       setFilteredUsers(users || []);
-    } 
+    }
     else {
       const filtered = (users || []).filter((user) =>
-          user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.position.toLowerCase().includes(searchTerm.toLowerCase())
+        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.position.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredUsers(filtered);
     }

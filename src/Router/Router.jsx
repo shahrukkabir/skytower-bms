@@ -18,7 +18,8 @@ import PaymentHistory from "../Dashboard/AdminDashboard/PaymentHistory/PaymentHi
 import UserProfile from "../Dashboard/UserDashboard/userProfile";
 import UserDashboardLayout from "../Dashboard/UserDashboard/UserDashboardLayout";
 import Announcements from "../Dashboard/UserDashboard/Announcement/Announcements";
-// import PrivateRoute from './PrivateRoute';
+import MakePayment from "../Dashboard/UserDashboard/MakePayment/MakePayment";
+import PaymentSystem from "../Dashboard/UserDashboard/MakePayment/PaymentSystem";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ const router = createBrowserRouter([
       {
         path: "/announcements",
         element: <Announcements></Announcements>
+      },
+      {
+        path: "makePayment",
+        element: <MakePayment></MakePayment>
+      },
+      {
+        path: "/pay",
+        element: <PaymentSystem></PaymentSystem>
       }
     ]
   }
