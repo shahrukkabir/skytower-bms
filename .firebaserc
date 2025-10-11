@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "building-management-48de1",
+    "production": "building-management-48de1",
+    "building": "building-management-48de1"
+  },
+  "targets": {},
+  "etags": {}
+}

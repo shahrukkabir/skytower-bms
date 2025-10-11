@@ -24,7 +24,7 @@ export default function UserProfile() {
     ];
 
     return (
-        <div className="w-full min-h-screen p-4">
+        <div className="w-full min-h-screen p-4 overflow-x-hidden">
             {/* Header */}
             <div className="w-full mt-11 shadow-md p-4 bg-gradient-to-b from-[#2c241e] via-[#7a622f] to-[#504211] rounded-xl">
                 <div className="w-full flex justify-between items-center">
@@ -83,7 +83,7 @@ export default function UserProfile() {
                     "You need to make an agreement to get access to your apartment details."
                 )}
             </div>
-            <div className="h-6"></div>
+            <div className="h-6 lg:h-0"></div>
         </div>
     );
 }
