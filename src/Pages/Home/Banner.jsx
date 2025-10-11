@@ -57,7 +57,7 @@ export default function Banner() {
                     delay: 5000, 
                     disableOnInteraction: false,
                 }}
-                speed={800}
+                speed={900}
                 loop={true}
                 // grabCursor={true}
                 pagination={false}
