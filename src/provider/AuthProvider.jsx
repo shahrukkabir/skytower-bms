@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const axiosPublic = useAxiosPublic();
+    const { axiosPublic } = useAxiosPublic();
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -45,42 +45,42 @@ const AuthProvider = ({ children }) => {
     //     return updateProfile(auth.currentUser, data);
     //   };
 
+        useEffect(() => {
+            const unsubscribe = onAuthStateChanged(auth, currentUser => {
+                setUser(currentUser);
+                if (currentUser) {
+                    // get token and store client
+                    const userInfo = { email: currentUser.email };
+                    axiosPublic.post('/jwt', userInfo)
+                        .then(res => {
+                            if (res.data.token) {
+                                localStorage.setItem('access-token', res.data.token);
+                                setLoading(false);
+                            }
+                        })
+                }
+                else {
+                    //remove token (if token stored in client side : Local storage, cahing , in memory)
+                    localStorage.removeItem('access-token');
+                }
+                // console.log("State Captured", currentUser);
+                // setLoading(false);
+            });
+            return () => {
+                return unsubscribe();
+            }
+        }, [axiosPublic])    
+
+
     // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
     //         setUser(currentUser);
-    //         if (currentUser) {
-    //             //get token and store client
-    //             // const userInfo = { email: currentUser.email };
-    //             // axiosPublic.post('/jwt', userInfo)
-    //             //     .then(res => {
-    //             //         if (res.data.token) {
-    //             //             localStorage.setItem('access-token', res.data.token);
-    //             //             setLoading(false);
-    //             //         }
-    //             //     })
-    //         }
-    //         else {
-    //             //remove token (if token stored in client side : Local storage, cahing , in memory)
-    //             localStorage.removeItem('access-token');
-    //         }
-    //         // console.log("State Captured", currentUser);
-    //         // setLoading(false);
+    //         setLoading(false);
     //     });
     //     return () => {
-    //         return unsubscribe();
-    //     }
-    // }, [axiosPublic])
-
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-            setLoading(false);
-        });
-        return () => {
-            unsubscribe();
-        };
-    }, []);
+    //         unsubscribe();
+    //     };
+    // }, []);
 
     const authInfo = {
         user,

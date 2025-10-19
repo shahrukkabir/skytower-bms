@@ -11,7 +11,7 @@ export default function NavBar() {
   const { user } = useAuth();
   const { users } = useUsers();
 
-  console.log(users);
+  // console.log(users);
 
   const findUser = users ? users.find((item) => item.email === user?.email) : null;
   const isAdmin = findUser && findUser.position === "admin";
