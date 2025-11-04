@@ -42,7 +42,7 @@ export default function AdminProfile() {
   ];
 
   return (
-    <div className="w-full min-h-screen p-4">
+    <div className="w-full min-h-screen overflow-x-hidden p-4">
       {/* Header */}
       <div className="w-full mt-11 shadow-md p-4 bg-gradient-to-b from-[#2c241e] via-[#7a622f] to-[#504211] rounded-xl">
         <div className="w-full flex justify-between items-center">
