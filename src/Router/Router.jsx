@@ -21,6 +21,7 @@ import Announcements from "../Dashboard/UserDashboard/Announcement/Announcements
 import MakePayment from "../Dashboard/UserDashboard/MakePayment/MakePayment";
 import PaymentSystem from "../Dashboard/UserDashboard/MakePayment/PaymentSystem";
 import UserPaymentHistory from "../Dashboard/UserDashboard/PaymentHistory/UserPaymentHistory";
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -91,23 +92,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/userDashboard",
-        element: <UserProfile></UserProfile>
+        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
       },
       {
         path: "/announcements",
-        element: <Announcements></Announcements>
+        element: <PrivateRoute><Announcements></Announcements></PrivateRoute>
       },
       {
         path: "makePayment",
-        element: <MakePayment></MakePayment>
+        element: <PrivateRoute><MakePayment></MakePayment></PrivateRoute>
       },
       {
         path: "/pay",
-        element: <PaymentSystem></PaymentSystem>
+        element: <PrivateRoute><PaymentSystem></PaymentSystem></PrivateRoute>
       },
       {
         path: "/userPaymentHistory",
-        element: <UserPaymentHistory></UserPaymentHistory>
+        element: <PrivateRoute><UserPaymentHistory></UserPaymentHistory></PrivateRoute>
       }
     ]
   }

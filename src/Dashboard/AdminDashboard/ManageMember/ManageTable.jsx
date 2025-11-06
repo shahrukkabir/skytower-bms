@@ -7,18 +7,26 @@ export default function ManageTable({ searchTerm }) {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
+    if (!users) return;
+
     if (searchTerm === "") {
       setFilteredUsers(users || []);
-    }
-    else {
-      const filtered = (users || []).filter((user) =>
-        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.position.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    } else {
+      const lowerSearch = searchTerm.toLowerCase();
+      const filtered = (users || []).filter((user) => {
+        const name = user?.name?.toLowerCase() || "";
+        const email = user?.email?.toLowerCase() || "";
+        const position = user?.position?.toLowerCase() || "";
+        return (
+          name.includes(lowerSearch) ||
+          email.includes(lowerSearch) ||
+          position.includes(lowerSearch)
+        );
+      });
       setFilteredUsers(filtered);
     }
   }, [searchTerm, users]);
+
 
   if (!users) {
     return <div>Loading...</div>;
