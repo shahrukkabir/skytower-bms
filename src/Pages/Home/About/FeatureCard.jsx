@@ -4,34 +4,33 @@ export default function FeatureCard() {
   const features = [
     {
       Icon: FaLightbulb,
-      title: "Creative",
+      title: "Creativity",
       description:
-        "The landscape infrastructures of streets are arranged in harmony with the common amenities for residents.",
+        "Design inspired by innovation, blending art with architecture for an inspiring living experience.",
     },
     {
       Icon: FaBrain,
       title: "Innovation",
       description:
-        "The landscape infrastructures of streets are arranged in harmony with the common amenities for residents.",
+        "Smart, efficient systems that enhance comfort, safety, and sustainability at every level.",
     },
     {
       Icon: FaMedal,
       title: "Reliability",
       description:
-        "The landscape infrastructures of streets are arranged in harmony with the common amenities for residents.",
+        "A trusted name ensuring consistent quality and unparalleled service to every resident.",
     },
   ];
 
   return (
-    <div className="flex py-10 mb-10 container mx-auto flex-wrap justify-around">
+    <div className="container mx-auto py-16 flex flex-wrap justify-center gap-10">
       {features.map((feature, index) => (
-        <div
-          key={index}
-          className="flex flex-col items-center p-4 w-full sm:w-1/2 lg:w-1/3"
-        >
-          <feature.Icon className="text-4xl mb-2" />
-          <h3 className="text-xl font-semibold mb-1">{feature.title}</h3>
-          <p className="text-center text-gray-600">{feature.description}</p>
+        <div key={index} className="bg-[#f9f7f4] rounded-2xl p-8 text-center w-[300px] shadow-sm hover:shadow-md hover:-translate-y-2 transition-all duration-300">
+          <feature.Icon className="text-5xl text-[#c78960] mb-4" />
+          <h3 className="text-xl font-semibold mb-2 text-[#2c241e]">
+            {feature.title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed">{feature.description}</p>
         </div>
       ))}
     </div>
