@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaBuilding } from "react-icons/fa";
-import { useContext, useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { RiLoginCircleFill } from "react-icons/ri";
 import LogOut from "../../Authentication/Logout";
 import useAuth from "../../hooks/useAuth";
@@ -16,8 +16,8 @@ export default function NavBar() {
   const findUser = users ? users.find((item) => item.email === user?.email) : null;
   const isAdmin = findUser && findUser.position === "admin";
 
-  console.log(isAdmin);
-  
+  // console.log(isAdmin);
+
 
   const profileBoxRef = useRef(null);
   const profileIconRef = useRef(null);

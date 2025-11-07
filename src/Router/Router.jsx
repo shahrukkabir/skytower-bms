@@ -22,6 +22,8 @@ import MakePayment from "../Dashboard/UserDashboard/MakePayment/MakePayment";
 import PaymentSystem from "../Dashboard/UserDashboard/MakePayment/PaymentSystem";
 import UserPaymentHistory from "../Dashboard/UserDashboard/PaymentHistory/UserPaymentHistory";
 import PrivateRoute from './PrivateRoute';
+import Contact from "../Pages/Home/Contact/Contact";
+import About from "../Pages/Home/About/About";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/appartment",
         element: <Allappartments></Allappartments>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
+      },
+      {
+        path: "/about",
+        element: <About></About>
       },
       {
         path: '/login',

@@ -11,10 +11,9 @@ export default function PaymentTable({ searchTerm }) {
     useEffect(() => {
         if (!payments) {
             setFilteredPayments([]);
-        } else {
-            const filtered = payments.filter(
-                (payment) => payment.email === user?.email
-            );
+        }
+        else {
+            const filtered = payments.filter((payment) => payment.email === user?.email);
             setFilteredPayments(filtered);
         }
     }, [payments, user]);
@@ -50,5 +49,5 @@ export default function PaymentTable({ searchTerm }) {
                 </tbody>
             </table>
         </div>
-    );  
+    );
 }

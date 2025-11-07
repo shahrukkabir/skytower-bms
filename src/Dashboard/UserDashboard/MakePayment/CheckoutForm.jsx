@@ -1,14 +1,14 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useCoupon from "../../../hooks/useCoupon";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const CheckoutForm = ({ paymentData }) => {
 
     const stripe = useStripe();
     const elements = useElements();
-    const { axiosPublic } = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { coupons } = useCoupon();
 
     const [getClientSecret, setGetClientSecret] = useState("");
@@ -32,12 +32,11 @@ const CheckoutForm = ({ paymentData }) => {
 
     useEffect(() => {
         if (finalRent) {
-            axiosPublic
-                .post("/createPaymentIntent", { price: finalRent })
+            axiosSecure.post("/createPaymentIntent", { price: finalRent })
                 .then((res) => setGetClientSecret(res.data.clientSecret))
                 .catch((err) => setErrorMessage(err.message));
         }
-    }, [axiosPublic, finalRent]);
+    }, [axiosSecure, finalRent]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -90,7 +89,7 @@ const CheckoutForm = ({ paymentData }) => {
             cardLast4: cardLast4,
         };
 
-        axiosPublic.post("/payments", paymentDataToSend)
+        axiosSecure.post("/payments", paymentDataToSend)
             .then(() => {
                 toast.success("Payment successful!");
                 setPaymentSuccessful(true);

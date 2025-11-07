@@ -1,16 +1,16 @@
 import { MdCancel, MdCheckCircle } from "react-icons/md";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import useHandleMemberByEmail from "../../../hooks/useHandleMemberByEmail";
 import useDeleteAgreement from './../../../hooks/useDeleteAgreement';
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function AgreementTableRow({ agreement, refetch }) {
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [handlemember] = useHandleMemberByEmail();
   const handleDelete = useDeleteAgreement();
 
-  const handleAccept = (data, email) => {    
+  const handleAccept = (data, email) => {
     Swal.fire({
       title: "Are you sure?",
       text: "Do you want to accept this agreement and update role?",
@@ -22,14 +22,14 @@ export default function AgreementTableRow({ agreement, refetch }) {
     })
       .then((result) => {
         if (result.isConfirmed) {
-          axiosPublic.patch(`/agreements/${data._id}`, { Status: "Accept" })
+          axiosSecure.patch(`/agreements/${data._id}`, { Status: "Accept" })
             .then(() => {
               refetch();
               handlemember({ position: "member" }, email);
-              if(data.Status == "Accept"){
+              if (data.Status == "Accept") {
                 toast.error("Agreement already updated!");
               }
-              else{
+              else {
                 toast.success("Agreement accepted & role updated!");
               }
             })
@@ -69,7 +69,7 @@ export default function AgreementTableRow({ agreement, refetch }) {
             <MdCheckCircle className="text-lg" />
           </button>
         </div>
-      </td> 
+      </td>
     </tr>
   );
 }

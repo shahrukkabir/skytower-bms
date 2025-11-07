@@ -1,15 +1,15 @@
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAnnouncement from "../../../hooks/useAnnouncement";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function AnnouncementForm() {
-    const { axiosPublic } = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { refetch } = useAnnouncement();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
-        axiosPublic.post("/announcements", data)
+        axiosSecure.post("/announcements", data)
             .then(() => {
                 reset();
                 refetch();

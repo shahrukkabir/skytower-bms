@@ -1,11 +1,11 @@
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import useAxiosPublic from "./useAxiosPublic";
 import useUsers from "./useUsers";
 import useAgreements from "./useAgreements";
+import useAxiosSecure from "./useAxiosSecure";
 
 export default function useDeleteAgreement() {
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { refetch } = useUsers();
   const { AgreeRefetch } = useAgreements();
 
@@ -22,7 +22,7 @@ export default function useDeleteAgreement() {
     })
       .then((result) => {
         if (result.isConfirmed) {
-          axiosPublic.delete(`/agreements/${id}`)
+          axiosSecure.delete(`/agreements/${id}`)
             .then(() => {
               refetch();
               AgreeRefetch();

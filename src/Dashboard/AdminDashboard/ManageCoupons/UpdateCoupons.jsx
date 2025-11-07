@@ -1,13 +1,12 @@
 import { CiCircleRemove } from "react-icons/ci";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useCoupon from "../../../hooks/useCoupon";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function UpdateCoupons({ item, handleToggleUpdate }) {
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { refetch } = useCoupon();
-
   const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: item });
 
   const onSubmit = (data) => {
@@ -23,7 +22,7 @@ export default function UpdateCoupons({ item, handleToggleUpdate }) {
       description: data.description,
     };
 
-    axiosPublic.put(`/coupons/${item._id}`, dataObject)
+    axiosSecure.put(`/coupons/${item._id}`, dataObject)
       .then((res) => {
         if (res.status === 200) {
           toast.success("Coupon updated successfully!", {

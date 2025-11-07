@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "./useAxiosPublic";
+import useAxiosSecure from "./useAxiosSecure";
 
 export default function useContactMessage() {
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { data: contactMessages = [], refetch } = useQuery({
     queryKey: ["contactMessages"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/contact_message");
+      const res = await axiosSecure.get("/contact_message");
       return res.data;
     },
   });

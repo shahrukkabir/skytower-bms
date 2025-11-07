@@ -6,10 +6,10 @@ import useAuth from "../../../hooks/useAuth";
 import useCoupon from "../../../hooks/useCoupon";
 import { NavLink } from "react-router-dom";
 import ManageAllCopon from "./MAnageAllCopon";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function ManageCoupons() {
-    const { axiosPublic } = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { coupons, refetch } = useCoupon();
     const { user } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -29,7 +29,7 @@ export default function ManageCoupons() {
     }, [searchTerm, coupons]);
 
     const onSubmit = (data) => {
-        axiosPublic.post("/coupons", data)
+        axiosSecure.post("/coupons", data)
             .then(() => {
                 reset();
                 refetch();

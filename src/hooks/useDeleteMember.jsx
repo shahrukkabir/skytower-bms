@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import useAxiosPublic from "./useAxiosPublic";
 import useUsers from "./useUsers";
+import useAxiosSecure from "./useAxiosSecure";
 
 export default function useDeleteMember() {
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { refetch } = useUsers();
 
   const handleUserDelete = (id) => {
@@ -19,8 +19,7 @@ export default function useDeleteMember() {
       cancelButtonColor: "#d33",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic
-          .delete(`/users/${id}`)
+        axiosSecure.delete(`/users/${id}`)
           .then(() => {
             refetch();
             toast.success("User deleted successfully!");

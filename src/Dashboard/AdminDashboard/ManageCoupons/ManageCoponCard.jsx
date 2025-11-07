@@ -2,12 +2,12 @@ import { FaTrash, FaPenAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useCoupon from "../../../hooks/useCoupon";
 import UpdateCoupons from "./UpdateCoupons";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function ManageCouponCard({ item }) {
-    const { axiosPublic } = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { refetch } = useCoupon();
     const [callUpdate, setCallUpdate] = useState(false);
 
@@ -22,7 +22,7 @@ export default function ManageCouponCard({ item }) {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/coupons/${id}`)
+                axiosSecure.delete(`/coupons/${id}`)
                     .then((res) => {
                         if (res.status === 200) {
                             toast.success("Coupon deleted successfully!", {

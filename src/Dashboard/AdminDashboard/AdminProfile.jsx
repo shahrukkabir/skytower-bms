@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAgreements from "../../hooks/useAgreements";
 import useUsers from "../../hooks/useUsers";
 import { FaBuilding, FaUsers } from "react-icons/fa";
 import { MdPeopleAlt } from "react-icons/md";
 import { SiGotomeeting } from "react-icons/si";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 export default function AdminProfile() {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const { axiosPublic } = useAxiosPublic();
   const [apparmentLength, setAppartmanetLength] = useState(0);
   const { agreements } = useAgreements();
   const { users } = useUsers();
@@ -18,11 +18,10 @@ export default function AdminProfile() {
   const pending = agreements.filter((item) => item.Status === "pending");
 
   useEffect(() => {
-    axiosPublic
-      .get("/appartmentlength")
+    axiosSecure.get("/appartmentlength")
       .then((response) => setAppartmanetLength(response.data.count))
       .catch((err) => console.error(err));
-  }, [axiosPublic]);
+  }, [axiosSecure]);
 
   const stats = [
     { title: "Total Appartments", value: apparmentLength, icon: <FaBuilding /> },

@@ -1,11 +1,11 @@
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useUsers from "./useUsers";
-import useAxiosPublic from "./useAxiosPublic";
+import useAxiosSecure from "./useAxiosSecure";
 
 export default function useHandleMember() {
   const { refetch } = useUsers();
-  const { axiosPublic } = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const handlemember = (data, id) => {
     Swal.fire({
@@ -19,7 +19,7 @@ export default function useHandleMember() {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.patch(`/users/${id}`, { position: data.position })
+        axiosSecure.patch(`/users/${id}`, { position: data.position })
           .then((res) => {
             if (res.data.modifiedCount > 0) {
               refetch();

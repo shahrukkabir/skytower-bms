@@ -1,11 +1,11 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAnnouncement from "../../../hooks/useAnnouncement";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function AnnouncementCard({ item }) {
-    const { axiosPublic } = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { refetch } = useAnnouncement();
 
     const handleDelete = (id) => {
@@ -20,7 +20,7 @@ export default function AnnouncementCard({ item }) {
             cancelButtonColor: "#d33",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/announcements/${id}`)
+                axiosSecure.delete(`/announcements/${id}`)
                     .then(() => {
                         refetch();
                         toast.success("Announcement deleted successfully!");

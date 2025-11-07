@@ -1,14 +1,14 @@
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useContactMessage from "../../../hooks/useContactMessage";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 export default function MessageCard({ item }) {
-    const { axiosPublic } = useAxiosPublic();
     const { refetch } = useContactMessage();
 
     const handleDelete = (id) => {
+        const axiosSecure = useAxiosSecure();
         Swal.fire({
             title: "Are you sure?",
             text: "This message will be permanently deleted.",
@@ -20,8 +20,7 @@ export default function MessageCard({ item }) {
             cancelButtonText: "Cancel",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic
-                    .delete(`/contact_message/${id}`)
+                axiosSecure.delete(`/contact_message/${id}`)
                     .then(() => {
                         refetch();
                         toast.success("Message deleted successfully!", {
