@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 export default function Features() {
   const featureData = [
@@ -29,14 +30,14 @@ export default function Features() {
   return (
     <div className="w-full py-10 bg-[#ffefe5]">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 relative">
-        
+
         {/* Left side image (desktop only) */}
-        <div className="hidden md:block w-full">
+        <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }} className="hidden md:block w-full">
           <img src={image} className="w-full h-full object-cover" alt="" />
-        </div>
+        </motion.div>
 
         {/* Text block */}
-        <div className="max-w-xl ml-0 lg:ml-40 mt-0 px-4 md:px-0">
+        <motion.div className="max-w-xl ml-0 lg:ml-40 mt-0 px-4 md:px-0" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           <div className="w-24 mx-auto lg:mx-0 border-t-2 border-[#c78960] mb-4"></div>
           <h3 className="text-4xl text-center lg:text-justify md:text-5xl font-bold text-[#2c241e]">
             Residences
@@ -45,8 +46,7 @@ export default function Features() {
             Spacious light-filled condominium residences, with panoramic views.
             An architectural wonder designed by Jean Nouvel.
           </p>
-        </div>
-
+        </motion.div>
         {/* Swiper */}
         <div className="w-full md:w-[600px] p-3 md:absolute md:top-1/2 md:left-[400px] md:-translate-y-1/3">
           <Swiper
@@ -110,6 +110,6 @@ export default function Features() {
           </Swiper>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

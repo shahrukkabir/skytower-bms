@@ -30,9 +30,6 @@ export default function ContactForm() {
 
   return (
     <div className="w-full border border-[#e5e5e5] shadow-sm p-8 bg-white">
-      {/* ✅ Toast container */}
-      <Toaster position="top-right" reverseOrder={false} />
-
       <h2 className="text-2xl font-semibold text-center mb-6 text-[#25201c]">
         Drop Us A Line
       </h2>

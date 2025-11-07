@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import design from "../../Image/design1.png";
+import { motion } from "framer-motion";
 
 export default function Testimonial() {
     const [reviews, setReviews] = useState([]);
@@ -20,7 +21,7 @@ export default function Testimonial() {
     }, []);
 
     return (
-        <div className="w-full xl:w-[1000px] py-14 mx-auto px-3">
+        <motion.div initial={{ y: 100, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }} className="w-full xl:w-[1000px] py-14 mx-auto px-3">
             <div className="text-center mb-10">
                 <h3 className="text-3xl uppercase text-[#312720] font-extrabold tracking-wide">
                     Customer Reviews
@@ -37,7 +38,7 @@ export default function Testimonial() {
             >
                 {reviews.map((review) => (
                     <SwiperSlide key={review._id}>
-                        <div className="flex flex-col justify-center items-center rounded-2xl p-8 mx-4 ">
+                        <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 0.7 }} className="flex flex-col justify-center items-center rounded-2xl p-8 mx-4">
                             <FaQuoteLeft className="text-[80px] text-[#c78960] opacity-70 mb-4" />
                             <p className="text-center text-lg italic text-[#312720] leading-relaxed mb-6">
                                 "{review.details}"
@@ -45,10 +46,10 @@ export default function Testimonial() {
                             <h3 className="text-xl font-bold text-[#c78960]">
                                 {review.name}
                             </h3>
-                        </div>
+                        </motion.div>
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </motion.div>
     );
 }

@@ -3,7 +3,7 @@ import Exparieanceimg from "../../../Image/exp.jpg";
 
 export default function Experience() {
   return (
-    <div className="w-full py-14 px-20">
+    <div className="w-full py-14 lg:px-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
         <div className="p-5">
           <div className="flex flex-col w-[220px] gap-1 mb-5">
@@ -26,7 +26,7 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex justify-end mr-16 mt-8 lg:mr-0 lg:mt-0">
           <div className="relative">
             <img
               src={Exparieanceimg}

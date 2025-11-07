@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css";
@@ -51,18 +52,12 @@ export default function Banner() {
 
     return (
         <div className="h-screen w-full bg-cover flex items-center justify-center relative overflow-hidden">
-            <Swiper spaceBetween={0}
-                centeredSlides={true}
+            <Swiper spaceBetween={0} centeredSlides={true}
                 autoplay={{
-                    delay: 5000, 
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
-                speed={900}
-                loop={true}
-                // grabCursor={true}
-                pagination={false}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                speed={900} loop={true} pagination={false} navigation={true} modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper absolute top-0 left-0 w-full h-full transition-opacity"
                 style={{ transitionDuration: "0.8s" }}
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
@@ -70,18 +65,25 @@ export default function Banner() {
                 {bannerData.map((item, idx) => (
                     <SwiperSlide key={idx}>
                         <img src={item.image} alt={`slide${idx}`} className="w-full h-full" />
-                        <div className="absolute bg-[rgba(0,0,0,0.5)] px-10 inset-0 flex items-center flex-col gap-7 justify-center">
-                            <h1 className="text-3xl sm:text-5xl text-center text-shadow-md text-white font-bold">
+                        <div className="absolute bg-[rgba(0,0,0,0.5)] px-10 inset-0 flex items-center flex-col gap-7 justify-center text-center">
+                            {/* Animated Title */}
+                            <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.8, ease: "easeOut" }} className="text-3xl sm:text-5xl text-white font-bold">
                                 {item.text}
-                            </h1>
-                            <p className="max-w-[700px] text-xl text-center text-shadow-md text-white">
+                            </motion.h1>
+                            {/* Animated Description */}
+                            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }} className="max-w-[700px] text-xl text-white">
                                 {item.desc}
-                            </p>
-                            <Link className="w-[250px] mt-5 text-center font-semibold text-white p-3 border-2 border-white hover:border-[#c78960] hover:bg-[#c78960] hover:text-white transition-colors duration-300">EXPLORE NOW</Link>
+                            </motion.p>
+
+                            {/* Animated Button */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}>
+                                <Link className="w-[250px] mt-5 inline-block text-center font-semibold text-white p-3 border-2 border-white hover:border-[#c78960] hover:bg-[#c78960] hover:text-white transition-colors duration-300">
+                                    EXPLORE NOW
+                                </Link>
+                            </motion.div>
                         </div>
                     </SwiperSlide>
                 ))}
-
                 {/* Slider ends ====================================== */}
                 <div className="autoplay-progress absolute bottom-5 right-5 z-50 lg:left-5 lg:right-auto" slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>

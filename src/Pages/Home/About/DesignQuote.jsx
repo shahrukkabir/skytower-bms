@@ -3,9 +3,9 @@ import img1 from "../../../Image/6.jpg";
 export default function DesignQuote() {
   return (
     <div className="w-full bg-[#f9f7f4] py-16">
-      <div className="container mx-auto px-20 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+      <div className="container mx-auto px-8 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
         {/* Left Image Section */}
-        <div className="flex justify-start ">
+        <div className="flex justify-start mb-10 lg:mb-0 ">
           <div className="relative w-[300px] h-[300px]">
             <img
               src={img1}
