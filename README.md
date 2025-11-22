@@ -1,13 +1,13 @@
 
 <div align="center">
 
-# 🏢✨ LuxTower – Building Management System
+# 🏢✨ SkyTower – Building Management System
 
 **A modern, fully-featured platform for managing a residential building — built for users, members, and administrators.**
 
 _Efficient apartment booking, digital payments, announcements, agreement management, and complete building operations in one place._
 
-[![Live Site](https://img.shields.io/badge/🌐_Live_LuxTower-4f46e5?style=for-the-badge&logo=firefox-browser)](https://srk-skytower.web.app/)
+[![Live Site](https://img.shields.io/badge/🌐_Live_SkyTower-4f46e5?style=for-the-badge&logo=firefox-browser)](https://srk-skytower.web.app/)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-Build-646cff?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind](https://img.shields.io/badge/TailwindCSS-4.x-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
@@ -27,9 +27,9 @@ _Efficient apartment booking, digital payments, announcements, agreement managem
 
 ---
 
-## 📖 About LuxTower
+## 📖 About SkyTower
 
-LuxTower is a single-building management system designed to simplify the experience for users, building members, and administrators. The platform provides apartment booking, agreement requests, secure payments, coupon usage, messaging, member management, admin dashboards, analytics, and much more — all within a modern, responsive UI.
+SkyTower is a single-building management system designed to simplify the experience for users, building members, and administrators. The platform provides apartment booking, agreement requests, secure payments, coupon usage, messaging, member management, admin dashboards, analytics, and much more — all within a modern, responsive UI.
 
 ---
 
@@ -284,7 +284,7 @@ graph TD
 **Shahruk Ibney Kabir**  
 *Full-Stack Developer & RepairRight Creator*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin)](kedin.com/in/shahrukkabir/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/shahrukkabir/)
 [![Email](https://img.shields.io/badge/Email-Contact-ea4335?style=for-the-badge&logo=gmail)](mailto:shahrukkabir01@gmail.com)
 
 
