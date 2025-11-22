@@ -16,30 +16,32 @@ import slide5 from "../../Image/slid1.jpg";
 const bannerData = [
     {
         image: slide1,
-        text: "Efficient Facilities Maintenance",
-        desc: "Implementing proactive maintenance strategies to minimize downtime and maximize the lifespan of building equipment and systems, ensuring smooth operations and reducing maintenance costs.",
+        text: "Modern Luxury Apartments",
+        desc: "Experience premium living with spacious layouts, elegant interiors, and a peaceful environment designed for your comfort.",
     },
     {
         image: slide2,
-        text: "Enhancing Building Security",
-        desc: "Utilizing state-of-the-art security systems and protocols to safeguard occupants, assets, and sensitive information, providing peace of mind and a secure environment",
+        text: "Prime Location & Connectivity",
+        desc: "Live at the heart of the city with easy access to transportation, shopping centers, hospitals, restaurants, and essential services.",
     },
     {
         image: slide3,
-        text: "Sustainable Energy Solutions",
-        desc: "Integrating renewable energy sources, energy-efficient technologies, and sustainable practices to reduce carbon footprint, lower energy bills, and contribute to a healthier planet.",
+        text: "Safe & Secure Living",
+        desc: "Enjoy round-the-clock security, CCTV surveillance, emergency support, and a protected environment for your family.",
     },
     {
         image: slide4,
-        text: "Optimizing Tenant Experience",
-        desc: "Focusing on delivering exceptional services, amenities, and personalized experiences to tenants, fostering satisfaction, loyalty, and a sense of community within the building.",
+        text: "Community-Focused Environment",
+        desc: "A welcoming residential community with friendly neighbors, shared amenities, and an atmosphere designed for harmonious living.",
     },
     {
         image: slide5,
-        text: "Streamlined Operations and Management",
-        desc: "Implementing efficient processes, automation, and technology solutions to streamline day-to-day operations, improve productivity, and enhance decision-making for building management.",
+        text: "Well-Maintained Facilities",
+        desc: "Regular maintenance, clean common areas, uninterrupted utilities, and a building management team always ready to assist.",
     },
 ];
+
+
 
 export default function Banner() {
 
