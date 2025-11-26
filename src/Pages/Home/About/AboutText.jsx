@@ -9,7 +9,7 @@ export default function AboutText() {
       </h3>
       <div className="max-w-[900px] mx-auto">
         <p className="text-justify text-gray-700 leading-relaxed">
-          At <span className="font-semibold text-[#c78960]">LuxTower</span>, we
+          At <span className="font-semibold text-[#c78960]">SkyTower</span>, we
           redefine luxury living with elegance and purpose. Our journey began
           with the vision to craft a single-building community that radiates
           class, comfort, and convenience. Each space is designed to offer
@@ -30,7 +30,7 @@ export default function AboutText() {
             <AiOutlineSafetyCertificate className="text-4xl text-[#c78960]" />
             <h3 className="text-2xl my-3 font-bold">Our Commitment</h3>
             <p className="text-gray-700 text-justify">
-              We are devoted to quality, integrity, and safety. LuxTower
+              We are devoted to quality, integrity, and safety. SkyTower
               provides secure, vibrant spaces enhanced by modern technology and
               attentive service.
             </p>

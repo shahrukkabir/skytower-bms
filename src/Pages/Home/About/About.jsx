@@ -25,7 +25,7 @@ export default function About() {
       {/* Middle Image Banner */}
       <div className="w-full">
         <div className="container mx-auto my-10">
-          <img src={image} className="w-full rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500" alt="About LuxTower" />
+          <img src={image} className="w-full rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500" alt="About SkyTower" />
         </div>
       </div>
       <Team />

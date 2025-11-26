@@ -21,7 +21,7 @@ export default function Experience() {
           </p>
           <p className="text-gray-700 text-justify leading-relaxed">
             With natural materials, spacious interiors, and refined finishes,
-            LuxTower delivers a warm, timeless elegance that defines true luxury
+            SkyTower delivers a warm, timeless elegance that defines true luxury
             living.
           </p>
         </div>
